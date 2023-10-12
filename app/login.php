@@ -1,6 +1,12 @@
 <?php
-// Establish a database connection (replace with your DB credentials)
-$conn = new mysqli("localhost", "username", "password", "utility");
+// Read MySQL connection details from environment variables
+$host = getenv('MYSQL_HOST');
+$database = getenv('MYSQL_DATABASE');
+$username = getenv('MYSQL_USER');
+$password = getenv('MYSQL_PASSWORD');
+
+// Establish a database connection
+$conn = new mysqli($host, $username, $password, $database);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
