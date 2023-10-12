@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Utility Login</title>
+    <title>Best Electrical Company Ever</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h1>Welcome to the Best Electrical Company Ever</h1>
+    <img src="electric-company.jpg" alt="Electrical Company Logo">
+    <p>Please log in to access your account.</p>
+
     <form action="login.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
