@@ -1,9 +1,9 @@
 <?php
 // Read MySQL connection details from environment variables
-$host = getenv('MYSQL_HOST');
-$database = getenv('MYSQL_DATABASE');
-$username = getenv('MYSQL_USER');
-$password = getenv('MYSQL_PASSWORD');
+$host = "localhost";
+$database = "utility";
+$username = "root";
+$password = "yourpassword";
 
 // Establish a database connection
 $conn = new mysqli($host, $username, $password, $database);

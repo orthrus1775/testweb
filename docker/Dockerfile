@@ -17,15 +17,15 @@ RUN docker-php-ext-install mysqli
 RUN a2enmod rewrite
 
 # Install MySQL client for database initialization
-RUN apt-get update && apt-get install -y default-mysql-client
+RUN apt-get update && apt-get install -y default-mysql-client python3-pip
 
 # Copy the Python script and CSV file into the container
 COPY app/update_database.py /update_database.py
 COPY app/customer_data.csv /customer_data.csv
 
 # Install pandas for Python script
-RUN pip install pandas
-RUN python /update_database.py
+RUN pip install pandas pymysql
+RUN python3 /update_database.py
 
 # Define environment variables for database connection
 ENV MYSQL_HOST=mysql
