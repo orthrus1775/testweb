@@ -15,18 +15,18 @@ CREATE TABLE IF NOT EXISTS users (
 -- Insert an admin user (change the password)
 INSERT INTO users (username, password, admin) VALUES ('admin', 'admin_password', 1);
 
--- Create the billing/electrical usage table
-CREATE TABLE IF NOT EXISTS usage (
+-- Create the billing_data table
+CREATE TABLE IF NOT EXISTS `billing_data` (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    month_year DATE,
-    usage INT,
-    bill_amount DECIMAL(10, 2),
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    account_number VARCHAR(255) NOT NULL,
+    kw_usage INT,
+    cost DECIMAL(10, 2),
+    due_date DATE, -- Add the due_date field
+    UNIQUE KEY unique_account_number (account_number)
 );
 
 -- Create a user with the username 'root' and password 'yourpassword'
-CREATE USER 'root'@'%' IDENTIFIED BY 'yourpassword';
+CREATE USER 'root'@'%' IDENTIFIED BY 'my-secret-pw';
 
 -- Grant all privileges to the 'root' user for the 'utility' database
 GRANT ALL PRIVILEGES ON utility.* TO 'root'@'%';

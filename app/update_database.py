@@ -1,10 +1,11 @@
 import pandas as pd
-import pymysql  # Use the appropriate MySQL library for your needs
+import pymysql
+from datetime import datetime
 
 # MySQL database connection settings (replace with your credentials)
-db_host = "mysql"  # Assuming your MySQL service is named "mysql" in Docker
+db_host = "127.0.0.1"  # Assuming your MySQL service is named "mysql" in Docker
 db_user = "root"
-db_password = "your_password"
+db_password = "my-secret-pw"
 db_name = "utility"
 
 # Path to the CSV file
@@ -20,20 +21,24 @@ try:
 
     for index, row in df.iterrows():
         # Extract data from the DataFrame
-        customer_id = row['Customer ID']
-        date = row['Date']
-        usage_kw = row['Usage (KW)']
-        bill_amount = row['Bill Amount']
+        account_number = row[0]  # The first column (0-indexed) is the account number
+        date_str = row[1]
+        kw_usage = row[2]
+        cost = row[3]
+
+        # Convert the date format to MySQL format ('YYYY-MM-DD')
+        date = datetime.strptime(date_str, '%m/%d/%Y').strftime('%Y-%m-%d')
 
         # Insert or update the data in the database
         sql = """
-        INSERT INTO usage (user_id, month_year, usage, bill_amount)
+        INSERT INTO billing_data (account_number, kw_usage, cost, due_date)
         VALUES (%s, %s, %s, %s)
         ON DUPLICATE KEY UPDATE
-        usage = VALUES(usage),
-        bill_amount = VALUES(bill_amount)
+        kw_usage = VALUES(kw_usage),
+        cost = VALUES(cost),
+        due_date = VALUES(due_date)
         """
-        cursor.execute(sql, (customer_id, date, usage_kw, bill_amount))
+        cursor.execute(sql, (account_number, kw_usage, cost, date))
 
     conn.commit()
     cursor.close()

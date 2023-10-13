@@ -1,16 +1,16 @@
 <?php
 // Read MySQL connection details from environment variables
-$host = "127.0.0.1";
+$host = "mysql";
 $db_port = 3306;
 $database = "utility";
 $username = "root";
-$password = "yourpassword";
+$password = "my-secret-pw";
 
 // Establish a database connection
 $conn = new mysqli($host, $username, $password, $database);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Database connection failed: " . $conn->connect_error);
 }
 
 // Get user input

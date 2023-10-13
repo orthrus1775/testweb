@@ -1,6 +1,13 @@
 <?php
 // Establish a database connection (replace with your DB credentials)
-$conn = new mysqli("localhost", "username", "password", "utility");
+$host = "mysql";
+$db_port = 3306;
+$database = "utility";
+$username = "root";
+$password = "my-secret-pw";
+
+// Establish a database connection
+$conn = new mysqli($host, $username, $password, $database);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
