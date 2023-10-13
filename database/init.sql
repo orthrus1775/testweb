@@ -24,3 +24,12 @@ CREATE TABLE IF NOT EXISTS usage (
     bill_amount DECIMAL(10, 2),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+-- Create a user with the username 'root' and password 'yourpassword'
+CREATE USER 'root'@'%' IDENTIFIED BY 'yourpassword';
+
+-- Grant all privileges to the 'root' user for the 'utility' database
+GRANT ALL PRIVILEGES ON utility.* TO 'root'@'%';
+
+-- Reload the privileges
+FLUSH PRIVILEGES;
