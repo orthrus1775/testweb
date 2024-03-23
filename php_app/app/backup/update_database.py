@@ -5,7 +5,7 @@ from datetime import datetime
 # MySQL database connection settings (replace with your credentials)
 db_host = "127.0.0.1"  # Assuming your MySQL service is named "mysql" in Docker
 db_user = "root"
-db_password = "my-secret-pw"
+db_password = "NewPa$$Word123!"
 db_name = "utility"
 
 # Path to the CSV file

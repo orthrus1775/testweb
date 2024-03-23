@@ -4,7 +4,7 @@ $host = "mysql";
 $db_port = 3306;
 $database = "utility";
 $username = "root";
-$password = "my-secret-pw";
+$password = "NewPa$$Word123!";
 
 // Establish a database connection
 $conn = new mysqli($host, $username, $password, $database);

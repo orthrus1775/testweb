@@ -1,11 +1,19 @@
 <?php
+session_start(); // Start the session
+
+// Check if user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: index.php");
+    exit;
+}
+
 if (isset($_POST['account_query'])) {
     // Establish a database connection (replace with your DB credentials)
     $host = "mysql";
     $db_port = 3306;
     $database = "utility";
     $username = "root";
-    $password = "my-secret-pw";
+    $password = "NewPa$$Word123!";
 
     // Establish a database connection
     $conn = new mysqli($host, $username, $password, $database);
