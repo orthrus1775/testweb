@@ -1,0 +1,22 @@
+/* KEYDATES BLOCK */
+.hive-block-key-dates .date-wrapper,
+.modal.dateModal .date-wrapper {
+    vertical-align: top;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIxLjUgM2gtMi43NWEwLjI1IDAuMjUgMCAwIDEgLTAuMjUgLTAuMjVWMWExIDEgMCAwIDAgLTIgMHY0Ljc1YTAuNzUgMC43NSAwIDAgMSAtMC43NSAwLjc1IDAuNzUgMC43NSAwIDAgMSAtMC43NSAtMC43NVYzLjVhMC41IDAuNSAwIDAgMCAtMC41IC0wLjVIOC4yNUEwLjI1IDAuMjUgMCAwIDEgOCAyLjc1VjFhMSAxIDAgMCAwIC0yIDB2NC43NWEwLjc1IDAuNzUgMCAwIDEgLTAuNzUgMC43NSAwLjc1IDAuNzUgMCAwIDEgLTAuNzUgLTAuNzVWMy41QTAuNSAwLjUgMCAwIDAgNCAzSDIuNWEyIDIgMCAwIDAgLTIgMnYxN2EyIDIgMCAwIDAgMiAyaDE5YTIgMiAwIDAgMCAyIC0yVjVhMiAyIDAgMCAwIC0yIC0yWk0yMSAyMkgzYTAuNSAwLjUgMCAwIDEgLTAuNSAtMC41di0xMkEwLjUgMC41IDAgMCAxIDMgOWgxOGEwLjUgMC41IDAgMCAxIDAuNSAwLjV2MTJhMC41IDAuNSAwIDAgMSAtMC41IDAuNVoiIGZpbGw9IiNhNGE0YTQiLz48L3N2Zz4=');
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-inline-start: 34px;
+}
+.hive-block-key-dates .date-info,
+.modal.dateModal .date-info {
+    min-height: 27px;
+}
+.hive-block-key-dates .date-info p,
+.modal.dateModal .date-info p {
+    margin-bottom:5px;
+}
+[dir="rtl"] .hive-block-key-dates .date-wrapper,
+[dir="rtl"] .modal.dateModal .date-wrapper {
+    background-position: right top;
+}

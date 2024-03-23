@@ -1,0 +1,35 @@
+.hive-block-description {
+    margin-bottom:1em;
+}
+
+.hive-block-image-slider .carousel-indicators {
+    bottom: 0;
+}
+.hive-block-image-slider .carousel-caption {
+    position: static;
+    background-color: #222;
+    padding: 15px 20px 50px;
+}
+.hive-block-image-slider .carousel-caption h3 {
+    color: #ffffff !important;
+}
+.hive-block-image-slider .carousel-caption a.cta-link {
+    color: #ffffff !important;
+    font-style: italic;
+    text-decoration: underline;
+}
+.hive-block-image-slider .carousel-control {
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+.hive-block-image-slider .carousel-control:hover,
+.hive-block-image-slider .carousel-control:focus {
+    opacity: 1;
+    box-shadow: 0px 0px 5px 0px #ffffff;
+}
+.hive-block-image-slider .item img {
+    width: 100%;
+}

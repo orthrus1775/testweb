@@ -1,0 +1,252 @@
+.logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -webkit-align-content: space-between;
+    -webkit-justify-content: center;
+    /*margin: 0 -10px;*/
+}
+
+.hive-logo-block  .logo-container a {
+    border: none;
+    text-decoration: none;
+}
+
+.logo-container .logo-item {
+    margin-top: 15px;
+}
+
+/**
+ * Columns
+ */
+.col-2 {
+    -webkit-flex-basis: 50%;
+    flex-basis: 50%;
+}
+
+.col-3 {
+    -webkit-flex-basis: 33%;
+    flex-basis: 33%;
+}
+
+.col-4 {
+    -webkit-flex-basis: 25%;
+    flex-basis: 25%;
+}
+
+.col-6 {
+    -webkit-flex-basis: 16%;
+    flex-basis: 16.5%;
+}
+
+@media \\0 screen {
+    .logo-item {
+        display: inline-block;
+    }
+
+    .col-2 {
+        width: 50%;
+    }
+
+    .col-3 {
+        width: 33%;
+    }
+
+    .col-4 {
+        width: 24%;
+    }
+
+    .col-6 {
+        width: 15.8%;
+    }
+}
+
+/**
+ * Styles
+ */
+
+    /**
+     * Borded
+     */
+
+    .logo-container.bordered .logo-item{
+        border: 1px solid #eee;
+        margin: .5%;
+    }
+
+    .logo-container.bordered .logo-item.col-2 {
+        -webkit-flex-basis: 49%;
+        flex-basis: 49%;
+    }
+
+    .logo-container.bordered .logo-item.col-3 {
+        -webkit-flex-basis: 32%;
+        flex-basis: 32%;
+    }
+
+    .logo-container.bordered .logo-item.col-4 {
+        -webkit-flex-basis: 24%;
+        flex-basis: 24%;
+    }
+
+    .logo-container.bordered .logo-item.col-6 {
+        -webkit-flex-basis: 15%;
+        flex-basis: 15%;
+    }
+
+
+    @media \\0 screen {
+
+        .logo-container.bordered .logo-item.col-2 {
+            width: 48%;
+        }
+
+        .logo-container.bordered .logo-item.col-3 {
+            width: 31.5%;
+        }
+
+        .logo-container.bordered .logo-item.col-4 {
+            width: 23%;
+        }
+
+        .logo-container.bordered .logo-item.col-6 {
+            width: 15%;
+        }
+    }
+
+    /**
+     * Grid
+     */
+
+    .logo-container.grid {
+        margin: 0;
+    }
+
+    .logo-container.grid .logo-item{
+        border: 1px solid #eee;
+        margin: 0;
+
+        /* Sneaky border hack */
+        margin-right: -1px;
+        margin-bottom: -1px;
+    }
+
+/**
+ * Image
+ */
+
+.logo-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+.logo-image-container > a {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.hive-logo-block .logo-image-container > a:focus {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: Highlight;
+}
+
+/* WebKit gets its native focus styles.
+*/
+@media (-webkit-min-device-pixel-ratio:0) {
+    .hive-logo-block .logo-image-container > a:focus {
+        outline-color: -webkit-focus-ring-color;
+        outline-style: auto;
+    }
+}
+
+.logo-image-container img{
+    position: absolute;
+    display: block;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+    align-self: center;
+    width: 90%;
+    height: auto;
+}
+
+
+.portrait .logo-image-container img {
+    width: auto;
+    height: 70%;
+    margin: auto auto;
+    display: inherit;
+}
+
+    /**
+     * Sizing
+     */
+
+    .logo-image-container.large img{
+        width: 100%;
+        height: auto;
+    }
+
+    .portrait .logo-image-container.large img {
+        width: auto;
+        height: 100%;
+    }
+
+    .logo-image-container.small img{
+        width: 60%;
+        height: auto;
+    }
+
+    .portrait .logo-image-container.small img {
+        width: auto;
+        height: 60%;
+    }
+
+/**
+ * Grayscale
+ */
+
+.logo-image-container.grayscale {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+/**
+ * Sidebar
+ */
+
+.sidebar .logo-image-container img{
+    width: 95%;
+}
+
+.sidebar .portrait .logo-image-container img {
+    width: auto;
+    height: 95%;
+}
+
+.sidebar .logo-image-container.small img{
+    width: 90%;
+}
+
+.sidebar .portrait .logo-image-container.small img {
+    width: auto;
+    height: 90%;
+}
+
+.sidebar .logo-image-container.large img{
+    width: 100%;
+}
+
+.sidebar .portrait .logo-image-container.large img {
+    width: auto;
+    height: 100%;
+}

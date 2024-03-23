@@ -1,0 +1,175 @@
+function inputFocus(i) {
+    if (i.value == i.defaultValue) {
+        i.value = "";
+        i.style.color = "#FFFFFF";
+    }
+}
+
+function inputBlur(i) {
+    if (i.value == "") {
+        i.value = i.defaultValue;
+        i.style.color = "#FFFFFF";
+    }
+}
+
+$(function() {
+    // MAIN NAVIGATION
+    var $nav = $("#navlinks");
+    $(".nav-toggle").on("click", function(e) {
+        e.preventDefault();
+        $('span.glyphicon', this).removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+        if ($nav.hasClass('is-open')) {
+            $nav.addClass('is-collapsing').removeClass('is-open');
+            setTimeout(function() {
+                $nav.removeClass('is-collapsing');
+            }, 300);
+        } else {
+            $nav.addClass('is-collapsing is-open');
+            $('span.glyphicon', this).removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+        }
+    });
+    // SEARCH BAR
+    navSearch();
+
+    // Initialize select2 on selects with the class
+    $('.select2').select2();
+
+    // Since select2 is older version, and doesn't support 'unselect' event
+    var selectVal, selectPrevVal = [];
+    $('.select2.select-multiple').on('change', function(e) {
+        selectPrevVal = (!!selectVal && selectVal.length > 0) ? selectVal : selectPrevVal;
+        optionAll = $(this).find('option[value=0]');
+        options = $(this).find('option');
+        selectVal = $(this).val();
+        if (!!selectVal && selectVal.indexOf('0') === 0) { // if is 'all'
+            $(this).find('option:not([value=0])').prop('selected', true);
+        } else if (!!selectPrevVal && selectPrevVal.indexOf('0') === 0) {
+            options.prop('selected', false);
+        } else if (!selectVal || selectVal.length <= 0) { // if no values selected
+            optionAll.prop('disabled', false);
+        } else { // anything other than null or all
+            optionAll.prop('disabled', true);
+        }
+    });
+
+    function navSearch() {
+        var searchBtn = $('.nav-utilities-search-form-btnwrap').html();
+        var searchForm = $('.nav-utilities-search-form').detach().prependTo('.search-overlay');
+        $('.nav-utilities-search').html(searchBtn);
+        $('.nav-utilities-search button').prop('type', 'button').attr('id', 'js-trigger-overlay');
+
+        var triggerBttn = document.getElementById('js-trigger-overlay'),
+            overlay = document.querySelector('div.search-overlay'),
+            closeBttn = document.getElementById('search-close'),
+            searchInput = $('div.search-overlay input[type="search"]');
+        transEndEventNames = {
+                'WebkitTransition': 'webkitTransitionEnd',
+                'MozTransition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'msTransition': 'MSTransitionEnd',
+                'transition': 'transitionend'
+            },
+            transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+            support = { transitions: Modernizr.csstransitions };
+
+        function toggleOverlay() {
+            if (classie.has(overlay, 'is-open')) {
+                classie.remove(overlay, 'is-open');
+                classie.add(overlay, 'is-close');
+                var onEndTransitionFn = function(ev) {
+                    if (support.transitions) {
+                        if (ev.propertyName !== 'visibility') return;
+                        this.removeEventListener(transEndEventName, onEndTransitionFn);
+                    }
+                    classie.remove(overlay, 'is-close');
+                };
+                if (support.transitions) {
+                    overlay.addEventListener(transEndEventName, onEndTransitionFn);
+                } else {
+                    onEndTransitionFn();
+                }
+                triggerBttn.focus();
+                overlay.setAttribute("aria-hidden", "true");
+                closeBttn.setAttribute("tabindex", "-1");
+            } else if (!classie.has(overlay, 'is-close')) {
+                classie.add(overlay, 'is-open');
+                searchInput.focus();
+                overlay.setAttribute("aria-hidden", "false");
+                closeBttn.removeAttribute("tabindex");
+            }
+        }
+
+        triggerBttn.addEventListener('click', toggleOverlay);
+        closeBttn.addEventListener('click', toggleOverlay);
+
+        document.onkeydown = kp;
+
+        function kp(e) {
+            var charCode = (typeof e.which == "number") ? e.which : e.keyCode
+            if (charCode == 27 && classie.has(overlay, 'is-open')) {
+                e.preventDefault();
+                toggleOverlay();
+            }
+            if (charCode == 9 && classie.has(overlay, 'is-open')) {
+                e.preventDefault();
+                var searchInput = $('#search-input'),
+                    searchBtn = $('#overlay-button'),
+                    closeBtn = $('#search-close');
+                if (e.target.id == "search-close") {
+                    if (e.shiftKey) {
+                        searchBtn.focus();
+                    } else {
+                        searchInput.focus();
+                    }
+                } else if (e.target.id == "search-input") {
+                    if (e.shiftKey) {
+                        closeBtn.focus();
+                    } else {
+                        searchBtn.focus();
+                    }
+                } else if (e.target.id == "overlay-button") {
+          if (e.shiftKey) {
+                        searchInput.focus();
+                    } else {
+                        closeBtn.focus();
+                    }
+                }
+            }
+        }
+
+    }
+
+    if (window.location.hash && window.location.hash == '#_=_') {
+        if (window.history !== undefined) {
+            window.history.replaceState ? window.history.replaceState(null, null, window.location.href.split('#')[0]) : window.location.hash = '';
+        } else {
+            window.location.hash = '';
+        }
+    }
+
+    $(window).on('signedin.hive', function(e) {
+        $('body').addClass('is-logged-in');
+        //Remove Login/Signup button from header and footer upon login, show Signout instead
+        $('.nav-utilities .js-show-guest, footer .js-show-guest').hide().attr('aria-hidden', 'true');
+        $('.nav-utilities .js-show-user, footer .js-show-user').each(function(k, i) {
+            var $i = $(i);
+            var html = $i.html();
+            html = html.replace(/LOGOUT_TOKEN/, e.logout_token);
+            $i.html(html);
+            $i.find('[data-hive-user="username"]').text(e.userName);
+        }).show().attr('aria-hidden', 'false');
+    });
+
+    $(window).on('signedout.hive', function(e) {
+        $('body').removeClass('is-logged-in');
+        $('.nav-utilities .js-show-user, footer .js-show-user').each(function(k, i) {
+            var $i = $(i);
+            var html = $i.html();
+            html = html.replace(/(\/logout)\/[^"]+/g, '$1/LOGOUT_TOKEN');
+            $i.html(html);
+            $i.find('[data-hive-user="username"]').text('USERNAME');
+        }).hide().attr('aria-hidden', 'true');
+        $('.nav-utilities .js-show-guest, footer .js-show-guest').show().attr('aria-hidden', 'false');
+    });
+
+});

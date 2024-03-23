@@ -1,0 +1,10 @@
+div.alert-success {
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+div.alert-error,
+div.alert-danger {
+    padding: 8px;
+    margin-bottom: 8px;
+}

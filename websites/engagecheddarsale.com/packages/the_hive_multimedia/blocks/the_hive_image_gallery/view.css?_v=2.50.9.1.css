@@ -1,0 +1,364 @@
+/* THE HIVE IMAGE GALLERY BLOCK  */
+.hive-block-media .hive-block-inner .row{
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.hive-block-media .hive-block-inner .autorow {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.autocol {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.media-block-content:not(.polaroid) .mosaic-overlay.caption-partial .truncate {
+    bottom: 0;
+    position: absolute;
+    background: url(../../img/bg-dark-grey.png);
+}
+
+.mosaic-fade .mosaic-overlay {
+    background: url(../../img/bg-dark-grey.png);
+}
+
+.mosaic-overlay.caption-partial {
+    background: none;
+}
+
+.hive-block-media .hive-block-media-item.video span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../../img/play-btn.png") no-repeat;
+    background-position: 50% 50%;
+    background-size: 150%;
+    opacity: .65;
+    z-index: 1;
+}
+
+/**
+ * Styles
+ */
+
+.mosaic-overlay {
+    z-index:5;
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:#111111;
+    color:#FFFFFF;
+    opacity: 0;
+}
+
+.mosaic-bar .mosaic-overlay {
+    padding:10px 10px 0px 10px;
+    height:auto;
+}
+
+.mosaic-fade .mosaic-overlay .details {
+    display: flex;
+}
+
+.mosaic-fade .mosaic-overlay .details div {
+    width: 100%;
+    align-self: center;
+}
+
+.mosaic-block {
+    overflow: hidden;
+}
+
+.mosaic-block .truncate{
+    padding: .5em;
+}
+
+.lg-slide .caption a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* Default (Grid) */
+
+.hive-block-media .hive-block-media-item {
+    padding: 5px;
+}
+
+.hive-block-media .hive-block-media-item img {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+.hive-block-media .image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+}
+
+/* 1:1; */
+.hive-block-media.ratio-1_1 .portrait .image-container:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+/* 4:3; */
+.hive-block-media.ratio-4_3 .image-container:before {
+    content: "";  
+    display: block;
+    padding-top: 75%;
+}
+
+/* 16:9 */
+.hive-block-media.ratio-16_9 .image-container:before {
+    content: "";
+    display: block;    
+    padding-top: 56.25%;
+}
+
+.hive-block-media.ratio-4_3 .image-container img,
+.hive-block-media.ratio-16_9 .image-container img,
+.hive-block-media.ratio-1_1 .portrait .image-container img {
+    position:  absolute;
+}
+
+@media screen\0 {
+    .hive-block-media.ratio-4_3 .image-container img,
+    .hive-block-media.ratio-16_9 .image-container img,
+    .hive-block-media.ratio-1_1 .portrait .image-container img{
+        position: absolute;
+        align-self: center;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0; 
+    }
+}
+
+/* Wall */
+.hive-block-media .hive-block-inner .row.wall{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.wall .hive-block-media-item{
+    padding: 0;
+}
+
+/* Polaroid */
+
+.polaroid .hive-block-media-item .media-container {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    padding: 5px;
+}
+
+.polaroid .hive-block-media-item.video span {
+    top: -30px;
+}
+
+.polaroid .hive-block-media-item .media-item-footer {
+    background-color: #fbfbfb;
+    padding-bottom: 60px;
+}
+
+.polaroid .hive-block-media-item .media-item-footer .mosaic-block {
+    display: block;
+}
+
+.polaroid .hive-block-media-item .media-item-footer .mosaic-overlay {
+    height: 60px;
+    bottom: 0;
+    background-color: #fff;
+    color: #000;
+    background: inherit;
+}
+
+.display-caption {
+    opacity: 1;
+}
+
+/**
+ * Sidebar style
+ */
+
+.sidebar .mosaic-overlay.caption-partial {
+    /*height: 33%;*/
+}
+
+/*.sidebar .mosaic-overlay.caption-partial .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+
+.sidebar .mosaic-block .truncate{
+    padding: .5em;
+}
+
+.sidebar .mosaic-fade .mosaic-overlay .details div {
+    font-size: 11px;
+}
+
+.sidebar .polaroid .hive-block-media-item .media-item-footer {
+    padding-bottom: 30px;
+    line-height: 1;
+}
+
+.sidebar .polaroid .hive-block-media-item .media-item-footer .mosaic-overlay {
+    height: 25px;
+}
+
+.sidebar .polaroid .hive-block-media-item.video span {
+    top: -15px;
+}
+
+.polaroid .hive-block-media-item .media-container {
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.polaroid .hive-block-media-item .media-container.focussed,
+.polaroid .hive-block-media-item:hover .media-container {
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+/*
+ * Thumbnail hover
+ */
+
+.media-block-content.polaroid .image-zoom-icon {
+    display: none;
+}
+
+
+.media-block-content:not(.polaroid) .hive-block-media-item:not(.video) a:focus .image-zoom-icon img,
+.media-block-content:not(.polaroid) .hive-block-media-item:not(.video) a:hover .image-zoom-icon img,
+.media-block-content:not(.polaroid) .hive-block-media-item a:focus .image-zoom-icon img,
+.media-block-content:not(.polaroid) .hive-block-media-item a:hover .image-zoom-icon img {
+    opacity: 1;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.media-block-content:not(.polaroid) .hive-block-media-item a:focus .main-image,
+.media-block-content:not(.polaroid) .hive-block-media-item a:hover .main-image {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.media-block-content:not(.polaroid) .hive-block-media-item a .main-image {
+    -ms-transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.media-block-content:not(.polaroid) .hive-block-media-item  a .image-zoom-icon {
+    background-color: rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transition: background-color 0.15s ease 0s;
+    -o-transition: background-color 0.15s ease 0s;
+    transition: background-color 0.15s ease 0s;
+    display: flex;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.media-block-content:not(.polaroid) .hive-block-media-item a .image-zoom-icon img {
+    align-self: center;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -20px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: opacity 0.3s ease 0s;
+    -o-transition: opacity 0.3s ease 0s;
+    transition: opacity 0.3s ease 0s;
+}
+
+.media-block-content:not(.polaroid) .hive-block-media-item a:focus .image-zoom-icon,
+.media-block-content:not(.polaroid) .hive-block-media-item a:hover .image-zoom-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.media-block-content:not(.polaroid) .hive-block-media-item:not(.video) a:hover .image-zoom-icon img {
+    opacity: 1;
+}
+
+.media-block-content:not(.polaroid) .hive-block-media-item .image-zoom-icon img {
+    height: 52px;
+    width: 52px;
+    opacity: 0.8;
+}
+
+@media (max-width: 767px) {
+    .autocol {
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 1069px) and (min-width: 768px) {
+
+    .mosaic-overlay.caption-partial {
+        bottom: 0;
+        /*line-height: 1;*/
+        padding: 0;
+    }
+
+}

@@ -1,0 +1,269 @@
+(function (Localize) {
+    /**
+     * @param {HTMLElement} element
+     * @constructor
+     */
+    var LanguagePicker = function(element) {
+        this.element = element;
+        this.pickerId = element.getAttribute('id');
+        this.enabled = typeof Localize !== 'undefined';
+        this.trigger = this.element.getElementsByClassName('language-picker-button')[0];
+        this.dropdown = this.element.getElementsByClassName('language-picker-dropdown')[0];
+        this.dropdownDescription = document.getElementById(this.dropdown.getAttribute('aria-describedby')).innerText;
+        this.defaultLanguage = this.dropdown.getAttribute('data-default');
+        this.activeLanguage = this.trigger.getElementsByClassName('language')[0];
+        this.currentLanguage = Localize && Localize.getLanguage() || null;
+        this.currentLanguageLabel = this.activeLanguage.innerText;
+
+        var that = this;
+        getAvailableLanguages()
+            .then(function(languages) {
+                languages.sort(function(a, b) {
+                    if (a.code === that.defaultLanguage) {
+                        return -1;
+                    }
+                    if (b.code === that.defaultLanguage) {
+                        return 1;
+                    }
+                    return a.code.localeCompare(b.code);
+                })
+                that.languages = languages;
+                initLanguagePicker(that);
+                initLanguagePickerEvents(that);
+            });
+    }
+
+    /**
+     * @param {LanguagePicker} picker
+     */
+    function initLanguagePicker(picker) {
+        picker.element.classList.add('language-picker-inline');
+
+        picker.trigger.setAttribute('aria-disabled', !picker.enabled ? 'true' : 'false');
+
+        initDropdownPicker(picker);
+
+        picker.element.classList.remove('hidden');
+    }
+
+    /**
+     * @param {LanguagePicker} picker
+     */
+    function initDropdownPicker(picker) {
+        if (picker.enabled) {
+            var list = picker.dropdown.getElementsByClassName('language-picker-list')[0];
+            picker.languages.forEach(function(language) {
+                var selected = picker.currentLanguage === language.code ? ' aria-selected="true"' : '';
+                list.insertAdjacentHTML('beforeend', '<li><a href="#" lang="' + language.code + '" data-value="' + language.code + '"' + selected + ' role="option" class="language-picker-item">' + language.name + '</a></li>');
+            });
+            list.classList.remove('hidden');
+        } else {
+            var message = picker.dropdown.getElementsByClassName('translation-unavailable')[0]
+            message.classList.remove('hidden');
+        }
+    }
+    /**
+     * @param {string} language
+     */
+    function changeLanguage(language) {
+        var newLocale = language;
+        if (typeof window.HiveLanguageMappings !== 'undefined' && typeof window.HiveLanguageMappings[newLocale] !== 'undefined') {
+            newLocale = window.HiveLanguageMappings[newLocale];
+        }
+
+        var expiry = new Date();
+        expiry.setDate(expiry.getTime() + (365 * 24 * 60 * 60 *1000));
+        document.cookie = "locale=" + newLocale + "; expires=" + expiry.toUTCString() + "; path=/";
+
+        window.location.reload();
+    }
+
+    /**
+     * @param {LanguagePicker} picker
+     * @param {string} bool
+     */
+    function toggleLanguagePicker(picker, bool) {
+        var ariaExpanded;
+        if (bool) {
+            ariaExpanded = bool;
+        } else {
+            ariaExpanded = picker.trigger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+        }
+        picker.trigger.setAttribute('aria-expanded', ariaExpanded);
+        if (ariaExpanded === 'true') {
+            if (picker.enabled) {
+                picker.dropdown.getElementsByClassName('language-picker-item')[0].focus();
+            } else {
+                picker.dropdown.getElementsByClassName('translation-unavailable')[0].focus();
+            }
+        }
+    }
+
+    /**
+     * @param {LanguagePicker} picker
+     * @param {string} direction
+     */
+    function keyboardNavigatePicker(picker, direction) {
+        var current = document.activeElement;
+        if (current.getAttribute('role') !== 'option') {
+            return;
+        }
+        var list = picker.dropdown.getElementsByClassName('language-picker-list')[0];
+        var options = Array.from(list.querySelectorAll('[role="option"]'));
+        var index = options.findIndex((opt) => opt.getAttribute('data-value') === current.getAttribute('data-value'));
+        index = (direction === 'next') ? index + 1 : index - 1;
+        if (index < 0) {
+            index = options.length - 1;
+        }
+        if (index >= options.length) {
+            index = 0;
+        }
+        options[index].focus();
+    }
+
+    /**
+     * @param {LanguagePicker} picker
+     */
+    function moveFocusToPickerTrigger(picker) {
+        if (picker.trigger.getAttribute('aria-expanded') === 'false') {
+            return;
+        }
+        if (document.activeElement.closest('.language-picker-dropdown') == picker.dropdown) {
+            picker.trigger.focus();
+        }
+    }
+
+    /**
+     * @param {LanguagePicker} picker
+     */
+    function initLanguagePickerEvents(picker) {
+        picker.trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleLanguagePicker(picker);
+        });
+
+        picker.trigger.addEventListener('keydown', function(e) {
+            if (e.key && e.key === ' ') {
+                e.preventDefault();
+                toggleLanguagePicker(picker);
+            }
+        });
+
+        if (picker.enabled) {
+            picker.dropdown.getElementsByClassName('language-picker-list')[0].addEventListener('click', function(e) {
+                e.preventDefault();
+
+                var option = e.target;
+                if (option.hasAttribute('aria-selected') && option.getAttribute('aria-selected') === 'true') {
+                    picker.trigger.setAttribute('aria-expanded', 'false');
+                } else {
+                    changeLanguage(option.getAttribute('data-value'));
+                }
+            });
+
+            picker.dropdown.addEventListener('keydown', function(e) {
+                if (e.key) {
+                    switch (e.key.toLowerCase()) {
+                        case 'arrowup':
+                            e.preventDefault();
+                            keyboardNavigatePicker(picker, 'prev');
+                            break;
+                        case 'arrowdown':
+                            e.preventDefault();
+                            keyboardNavigatePicker(picker, 'next');
+                            break;
+                    }
+                }
+            });
+        }
+
+        if (typeof Localize !== 'undefined') {
+            Localize.on('setLanguage', function(e) {
+                picker.currentLanguage = e.to;
+                updateSelectedLanguage(picker);
+            });
+        }
+    }
+
+    function getLanguageLabel(picker, lang) {
+        if (!picker.languages) {
+            return null;
+        }
+
+        var language = picker.languages.find(function(l) {
+            return l.code === lang;
+        });
+        if (language) {
+            return language.name;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param {LanguagePicker} picker
+     */
+    function updateSelectedLanguage(picker) {
+        var newLanguageLabel = getLanguageLabel(picker, picker.currentLanguage);
+        if (newLanguageLabel) {
+            picker.activeLanguage.innerText = newLanguageLabel;
+            picker.trigger.setAttribute('aria-label', newLanguageLabel + ' ' + picker.dropdownDescription);
+        }
+
+        var languageList = picker.dropdown.getElementsByClassName('language-picker-list')[0];
+        Array.from(languageList.getElementsByClassName('language-picker-item')).forEach(function(element) {
+            var selected = picker.currentLanguage === element.getAttribute('lang');
+            element.setAttribute('aria-selected', selected ? 'true' : 'false');
+        });
+    }
+
+
+    function checkLanguagePickerClick(picker, target) {
+        if (!picker.element.contains(target)) {
+            toggleLanguagePicker(picker, 'false');
+        }
+    }
+
+    /**
+     * @return {Promise}
+     */
+    function getAvailableLanguages() {
+        return new Promise(function(resolve, reject) {
+            if (typeof Localize === 'undefined') {
+                return resolve([]);
+            }
+
+            Localize.getAvailableLanguages(function(err, languages) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(languages);
+            });
+        });
+    }
+
+    var languagePicker = document.getElementsByClassName('js-language-picker');
+    if (languagePicker.length) {
+        var pickerArray = [];
+        for (var i = 0; i < languagePicker.length; i++) {
+            (function(i){
+                pickerArray.push(new LanguagePicker(languagePicker[i]))
+            })(i);
+        }
+
+        window.addEventListener('keyup', function(e) {
+            if (e.key && e.key.toLowerCase() === 'escape') {
+                pickerArray.forEach(function(element) {
+                    moveFocusToPickerTrigger(element);
+                    toggleLanguagePicker(element, 'false');
+                })
+            }
+        });
+
+        window.addEventListener('click', function(e) {
+            pickerArray.forEach(function(element) {
+                checkLanguagePickerClick(element, e.target);
+            });
+        });
+    }
+}(window.Localize));

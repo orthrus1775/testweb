@@ -1,0 +1,12 @@
+/*
+Magic Tabs by John Liddiard (aka JohntheFish)
+www.jlunderwater.co.uk
+This software is licensed under the terms described in the concrete5.org marketplace.
+Please find the add-on there for the latest license copy.
+
+Create a tabbed interface simply by inserting magic tabs blocks into the page
+*/
+
+.jl_magic_tabs  ul.ccm-dialog-tabs li, .jl_magic_tabs  ul.tabs li {
+	list-style-type:none;
+}

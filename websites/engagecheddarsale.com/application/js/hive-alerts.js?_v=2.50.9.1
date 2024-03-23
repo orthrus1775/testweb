@@ -1,0 +1,83 @@
+(function (global, $) {
+    'use strict';
+
+    var document = global.document,
+        HiveAlerts;
+
+    HiveAlerts = {
+
+        info: function(options) {
+            var settings = $.extend({}, options, {
+                type: 'info',
+                icon: 'info'
+            });
+            return this.notify(settings);
+        },
+
+        success: function(options) {
+            var settings = $.extend({}, options, {
+                type: 'success',
+                icon: 'check'
+            });
+            return this.notify(settings);
+        },
+
+        error: function(options) {
+            var settings = $.extend({}, options, {
+                type: 'danger',
+                icon: 'times'
+            });
+            return this.notify(settings);
+        },
+
+        notify:  function(options){
+            var defaults = {
+                type: 'info',
+                icon: 'info',
+                delay: 5000,
+                title: '',
+                message: '',
+                classes: ''
+            };
+
+            var dir = options.dir || (window.i18next && window.i18next.dir()) || 'ltr';
+
+            var settings = $.extend({}, defaults, options);
+
+            var wrapElem = document.createElement('div');
+            wrapElem.className = 'hive-alert hive-alert-'+ settings.type + ' ' + settings.classes;
+            wrapElem.dir = dir;
+
+            var iconElem = document.createElement('i');
+            iconElem.className = 'hive-alert-icon fa fa-'+ settings.icon;
+
+            var innerElem = document.createElement('div');
+            innerElem.className = 'hive-alert-inner';
+
+            var titleElem = document.createElement('div');
+            titleElem.className = 'hive-alert-title';
+            titleElem.innerHTML = settings.title;
+
+            var msgElem = document.createElement('div');
+            msgElem.className = 'hive-alert-msg';
+            msgElem.innerHTML = settings.message;
+
+            innerElem.appendChild(titleElem);
+            innerElem.appendChild(msgElem);
+
+            wrapElem.appendChild(iconElem);
+            wrapElem.appendChild(innerElem);
+
+            var tmpNode = document.createElement('div');
+            tmpNode.appendChild(wrapElem);
+
+            var elem = tmpNode.innerHTML;
+            tmpNode = null; // prevent memory leaks in IE
+
+            alertify.success(elem, settings.delay);
+        }
+    };
+
+    global.HiveAlerts = HiveAlerts;
+
+}(this, jQuery));

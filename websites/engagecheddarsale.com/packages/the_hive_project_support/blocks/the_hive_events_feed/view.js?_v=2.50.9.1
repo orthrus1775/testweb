@@ -1,0 +1,192 @@
+var EventCardImageVue = Vue.component('event-card-image', {
+    props: {
+        item: {
+            type: Object
+        },
+        showThumbnail: {
+            type: Boolean,
+            default: false
+        }
+    },
+    mounted: function () {
+        this.init();
+    },
+    watch: {
+        item: function() {
+            this.init();
+        }
+    },
+    computed: {
+        imageStyle: function () {
+            if (this.imageUrl) {
+                return {
+                    'background-image': 'url(' + this.imageUrl + ')'
+                }
+            }
+        }
+    },
+    methods: {
+        init: function() {
+            var my = this;
+
+            this.imageUrl = null;
+
+            if (this.item.event_thumbnail !== '' && this.item.event_image !== '') {
+                axios.head(this.item.event_thumbnail)
+                    .then(function() {
+                        my.imageUrl = my.item.event_thumbnail;
+                    })
+                    .catch(function() {
+                        my.imageUrl = my.item.event_image;
+                    });
+            }
+        }
+    },
+    data: function () {
+        return {
+            imageUrl: null
+        }
+    }
+});
+
+
+// Facts Panel
+var EventsVue = Vue.extend({
+    data: function(){
+        return {
+            bID: 0,
+            eventsUrl: "",
+            limit : 0,
+            page_type : '',
+            events : [],
+            loading : true,
+            showThumbnail: false,
+            showMoreButton: false,
+            itemsCount: 3,
+            itemsTotal: 0,
+            page: 0,
+            truncateLimit : 200,
+            p : {},
+            windowWidth: 0,
+            toolWidth: 0,
+            displayType: 'Card',
+            toolArea: '',
+            hasSidebar: false
+        }
+    },
+    filters: {
+        truncate: function(text, length, clamp){
+            clamp = clamp || '...';
+            var node = document.createElement('div');
+            node.innerHTML = text;
+            var content = node.textContent;
+            return content.length > length ? content.slice(0, length) + clamp : content;
+        },
+        formatDateFull: function(date, dateTimeFormat) {
+            return moment(date).format('lll')
+        },
+        formatDateMonth: function(date) {
+            return moment(date).format('MMM')
+        },
+        formatDateDay: function(date) {
+            return moment(date).format('DD')
+        },
+    },
+    methods: {
+
+        init : function (settings) {
+
+            var vm = this;
+
+            vm.bID = settings.bID;
+            vm.eventsUrl = settings.eventsUrl;
+            vm.showThumbnail = settings.showThumbnail;
+            vm.itemsCount = settings.itemsCount;
+            vm.p = settings.p;
+            vm.displayType = settings.displayType;
+            vm.toolArea = settings.toolArea;
+            vm.dateTimeFormat = settings.dateTimeFormat;
+
+            vm.windowWidth = document.body.clientWidth;
+            vm.toolWidth = (document.getElementById('hive-block-events-feed-' + vm.bID)) ? document.getElementById('hive-block-events-feed-' + vm.bID).clientWidth : 0;
+
+            var check_sidebar = document.getElementsByClassName('sidebar');
+
+            if(check_sidebar.length > 0)
+            {
+                vm.hasSidebar = true;
+            }
+
+            vm.truncateLimit = 150;
+            window.addEventListener("resize", vm.onResize);
+
+            vm.loadMore(0);
+
+        },
+        goToEvent : function (event_url) {
+            window.location.href = event_url;
+        },
+        arrayUnique : function (array) {
+            var a = array.concat();
+            for(var i=0; i<a.length; ++i) {
+                for(var j=i+1; j<a.length; ++j) {
+                    if(a[i].event_id === a[j].event_id)
+                        a.splice(j--, 1);
+                }
+            }
+
+            return a;
+        },
+        loadMore : function (start) {
+            var vm = this;
+            vm.loading = true;
+            if(typeof axios !== 'undefined')
+            {
+                //calculate limit
+                if(vm.p.limit){
+                    var itemLimit = vm.itemsCount + 1;
+                    vm.p.limit = start + ',' + itemLimit;
+                }
+                vm.page = start;
+                axios.get(vm.eventsUrl, {
+                    params : vm.p
+                })
+                .then(function (r) {
+                    if(r.data.response == 'success'
+                        && r.data.result.length > 0) {
+
+                        if(vm.p.limit && r.data.result.length > vm.itemsCount)
+                        {
+                            vm.showMoreButton = true;
+                            r.data.result.splice(vm.itemsCount, 1);
+                        }
+                        else
+                        {
+                            vm.showMoreButton = false;
+                        }
+
+                        if(vm.events.length > 0)
+                        {
+                            vm.events = vm.arrayUnique(vm.events.concat(r.data.result));
+                        }
+                        else{
+                            vm.events = r.data.result;
+                        }
+                    }
+
+                    vm.loading = false;
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+            }
+        },
+        onResize: function() {
+            this.windowWidth = document.body.clientWidth;
+            this.toolWidth = document.getElementById('hive-block-events-feed-' + this.bID).clientWidth;
+        }
+    },
+    beforeDestroy: function() {
+        window.removeEventListener('resize', this.onResize);
+    }
+});

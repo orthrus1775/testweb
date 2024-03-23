@@ -1,0 +1,31 @@
+.hive-block-document-library .link {
+    display: table;
+    margin-bottom: 0.3em;
+    width: 100%;
+}
+.hive-block-document-library .file-thumbnail {
+    display: table-cell;
+    vertical-align: middle;
+    width: 80px;
+    padding-inline-end: 0.3em;
+}
+.hive-block-document-library .file-thumbnail img {
+    max-width: 80px;
+    width: 100%;
+    height: auto;
+}
+.hive-block-document-library .file {
+    display: table-cell;
+    vertical-align: middle;
+}
+.hive-block-document-library .file-description p {
+    margin: 0 0 0.3em;
+}
+.hive-block-document-library .group-heading {
+    margin-top: 0.6em;
+}
+.modal.hive-block-document-library ul,
+.hive-block-document-library .hive-block-inner ul {
+    padding: 0;
+    list-style-type: none;
+}

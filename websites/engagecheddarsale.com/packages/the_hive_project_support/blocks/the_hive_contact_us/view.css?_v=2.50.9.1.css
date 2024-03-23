@@ -1,0 +1,80 @@
+.action-items .hive-block-contact-us h3 {
+	font-size: 1.25em;
+}
+
+.action-items .hive-block-contact-us table th,
+.action-items .hive-block-contact-us table td {
+    line-height: 1.4;
+	padding-inline-end: 0.5em;
+	padding-bottom: 0.5em;
+	padding-inline-start: 0;
+	vertical-align: top;
+	word-break: break-word;
+}
+
+.action-items .hive-block-contact-us table tr:first-child {
+	padding-inline-start: 0px !important;
+}
+
+.hive-block-contact-us table {
+	border-collapse: collapse;
+	width: 100%;
+}
+.hive-block-contact-us table th,
+.hive-block-contact-us table td {
+	line-height: 1.4;
+	padding-inline-end: 0.5em;
+	padding-bottom: 0.5em;
+	padding-inline-start: 0;
+	vertical-align: top;
+	word-break: break-word;
+}
+
+.hive-block-contact-us table tr th {
+    white-space:nowrap;
+    width: 1%;
+}
+.hive-block-contact-us table tr i {
+    padding-inline-end: 0.5em;
+}
+.hive-block-contact-us table tr td:last-child {
+    padding-inline-end: 0px;
+}
+
+/* Align table content based on block settings */
+
+.hive-block-contact-us table.text-left tr th,
+.hive-block-contact-us table.text-left tr td {
+    text-align: start;
+}
+
+.hive-block-contact-us table.text-right tr th,
+.hive-block-contact-us table.text-right tr td {
+	text-align: end;
+}
+
+.hive-block-contact-us table.text-center tr th,
+.hive-block-contact-us table.text-center tr td {
+	text-align: center;
+}
+
+
+/* Stack rows vertically on small screens */
+@media (max-width: 48em) {
+  	/* Get table cells to act like rows */
+  	.hive-block-contact-us table tr th:not(.no-wrap),
+  	.hive-block-contact-us table tr td:not(.no-wrap) {
+		display: block;
+	}
+	.action-items .hive-block-contact-us table tr th,
+	.hive-block-contact-us table tr th {
+		padding-bottom: 0;
+		padding-inline-end: 0;
+		width: auto;
+	}
+	.hive-block-contact-us table td:before {
+	    display: block;
+	    margin-bottom: 0.75em;
+	    margin-inline-start: 0;
+	}
+}

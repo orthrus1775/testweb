@@ -1,0 +1,58 @@
+.hive-block-image img {
+    width:100%;
+    border: 0;
+}
+
+.hive-block-image a.lightbox {
+    position: relative;
+    display: block;
+}
+
+.hive-block-image .hive-block-description {
+    margin-top:5px;
+}
+
+.hive-block-image .align-left {
+    margin-right: auto;
+}
+.hive-block-image .align-right {
+    margin-left: auto;
+}
+.hive-block-image .align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hive-block-image .overlay {
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    font-size: 50px;
+    text-align: center;
+    opacity: 1;
+    transition: background-color 0.5s ease-out;
+}
+.hive-block-image .overlay::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.hive-block-image a:hover .overlay,
+.hive-block-image a:focus .overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+.hive-block-image a:hover .overlay .fa,
+.hive-block-image a:focus .overlay .fa {
+    opacity: 1;
+}
+.hive-block-image .overlay .fa {
+    opacity: 0;
+    margin: auto;
+    vertical-align: middle;
+    color: #efefef;
+}

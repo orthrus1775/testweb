@@ -1,0 +1,835 @@
+$(function(){
+
+    i18next
+        .loadNamespaces('core')
+        .then(function() {
+
+            var $t = function (key, options) {
+                var defaults = {
+                    ns: 'core'
+                };
+                var opts = $.extend(true, {}, defaults, options)
+                return i18next.t(key, opts);
+            };
+
+            // add validation methods
+            $.validator.addMethod("noSpace", function (value, element) {
+                return value.indexOf(" ") < 0 && value != "";
+            }, function (params, element) {
+                var label = $('label[for="' + element.id + '"]').text().replace(' *', '') || false;
+                if (!!label.length) {
+                    return $t('validation.noSpacesInField', {field: label});
+                }
+                return $t('validation.noSpaces');
+            });
+            $.validator.addMethod("dontStartWith", function (value, element, params) {
+                var pattern = new RegExp('^(?![' + params.join('|') + ']).*$', 'i');
+                return (this.optional(element) || pattern.test(value));
+            }, function (params, element) {
+                var label = $('label[for="' + element.id + '"]').text().replace(' *', '') || false;
+                if (!!label.length) {
+                    return $t('validation.dontStartInField', {field: label, chars: params.join(' ')});
+                }
+                return $t('validation.dontStart', {field: label, chars: params.join(' ')});
+            });
+            $.validator.addMethod("regexMatchesAny", function (value, element, params) {
+                var pattern = new RegExp('^([' + params.join('|') + ']+)$');
+                return (this.optional(element) || pattern.test(value));
+            }, function (params, element) {
+                var label = $('label[for="' + element.id + '"]').text().replace(' *', '') || false;
+                if (!!label.length) {
+                    return $t('validation.noSpecialInField', {field: label});
+                }
+                return $t('validation.noSpecial');
+            });
+
+            // this is the custom strong password validation method
+            $.validator.addMethod('strongPassword', function (value, element) {
+
+                var $element = $(element);
+                // collect these values from the element attributes
+                // the attributes are created from the concrete 5 concrete.php file
+                var numOf = Number.parseInt($element.attr('number_of') || 0);
+                var isUpper = $element.attr('char_upper');
+                var isLower = $element.attr('char_lower');
+                var isNumber = $element.attr('char_number');
+                var isSpecial = $element.attr('char_special');
+
+                // define the object that will hold all the active filters
+                var groups = [];
+
+                // test each attribute to see if it is in this validation
+                if (isUpper) {
+                    groups.push({
+                        type: 'uppercase',
+                        regex: /^\S*(?=\S*[A-Z])\S*$/
+                    });
+                }
+
+                if (isLower) {
+                    groups.push({
+                        type: 'lowercase',
+                        regex: /^\S*(?=\S*[a-z])\S*$/
+                    });
+                }
+
+                if (isNumber) {
+                    groups.push({
+                        type: 'numeric',
+                        regex: /^\S*(?=\S*[\d])\S*$/
+                    });
+                }
+
+                if (isSpecial) {
+                    groups.push({
+                        type: 'special',
+                        regex: /^\S*(?=\S*[\W])\S*$/
+                    });
+                }
+
+                // this is a counter to check the total types set
+                var typeSet = groups.length;
+
+                // if there has been a config set incorrectly correct it here
+                if (typeSet < numOf) {
+                    numOf = typeSet;
+                }
+
+                // loop through each active character type and count success's
+                var counter = 0;
+                groups.forEach(function (group) {
+                    var reg = new RegExp(group.regex);
+
+                    if (reg.exec(value)) {
+                        counter++
+                    }
+                });
+
+                // build our base error message
+                var formatReadableGroups = function (groups, joinWith, count) {
+                    var types = groups.map(function (group) {
+                        return group.type;
+                    });
+                    var g1 = [types.slice(0, -1).map(function (type) {
+                        return $t('validation.groups.' + type + '.description', {count: count})
+                    }).join(', ')];
+                    var g2 = types.slice(-1).map(function (type) {
+                        return $t('validation.groups.' + type + '.description', {count: count});
+                    })
+                    return g1.concat(g2).join(' ' + joinWith + ' ');
+                };
+                var errorMessage = '';
+                if (numOf > 0) {
+                    errorMessage = $t('validation.passwordMustContain') + ' ';
+                    if (numOf === typeSet) {
+                        errorMessage += $t('validation.atLeast') + ' ' + formatReadableGroups(groups, $t('validation.and'), 1);
+                    } else {
+                        if (numOf !== 1) {
+                            errorMessage += $t('validation.mixOf') + ' ';
+                        }
+                        errorMessage += $t('validation.atLeastFollowing', {num: numOf}) + ' ' + formatReadableGroups(groups, $t('validation.or'), 0);
+                    }
+                }
+
+                // pass the error message to the validation handler
+                $.validator.messages["strongPassword"] = errorMessage;
+
+                // see if we have enough types to pass
+                if (counter >= numOf)
+                    return true;
+                else
+                    return false;
+
+            }, '');
+
+            // check if element has Other option and make sure that error class is being deligated correctly
+            var checkOther = function (element, action) {
+                var el = $(element);
+                const formGroup = el.parents('.form-group');
+
+                //select with other
+                if (el.is('select') && formGroup.find('input[id$=_other]').length
+                    && !formGroup.find('input[id$=_other]').is(':hidden')) {
+                    return (formGroup.find('input[id$=_other]').val() == '' && action == 'unhighlight');
+                }
+
+                //checkbox with other
+                else if (el.is('input[type="checkbox"]') && formGroup.find('input[id$=_other]').length
+                    && !formGroup.find('input[id$=_other]').is(':hidden')) {
+                    return (formGroup.find('input[id$=_other]').val() == '' && action == 'unhighlight');
+                }
+
+                return false;
+            }
+
+            // override jquery validate plugin defaults to match Bootstrap
+            $.validator.setDefaults({
+                highlight: function (element) {
+                    if (checkOther(element, 'highlight')) {
+                        return;
+                    }
+                    $(element).closest('.form-group').addClass('has-error');
+                },
+                unhighlight: function (element) {
+                    if (checkOther(element, 'unhighlight')) {
+                        return;
+                    }
+                    $(element).closest('.form-group').removeClass('has-error');
+                },
+                errorElement: 'span',
+                errorClass: 'help-block help-validation',
+                errorPlacement: function (error, element) {
+                    if (element.closest('.radioList, .checkboxList').length) {
+                        error.appendTo(element.closest('.radioList, .checkboxList'));
+                    } else if (element.parent('.input-group, label, .checkbox').length) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+            });
+
+            function IsJsonString(str) {
+                try {
+                    JSON.parse(str);
+                } catch (e) {
+                    return false;
+                }
+                return true;
+            }
+
+            $('#logInForm').validate({
+                rules: {
+                    uName: {required: true, email: true},
+                    uPassword: {required: true}
+                },
+                messages: {
+                    uName: {required: $t('validation.emailRequired')},
+                    uPassword: {required: $t('validation.passwordRequired')}
+                },
+                submitHandler: function(form) {
+                    var $form = $(form);
+                    $.ajax({
+                        type: $form.attr('method'),
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                        dataType: 'json',
+                        headers: {
+                            'X-Locale': (window.CCM_ACTIVE_LOCALE || 'en_US')
+                        },
+                        beforeSend: function(xhr, opts) {
+                            $form.find('.error-message').attr('aria-hidden', true).removeClass().addClass('error-message').children().remove();
+                            $form.find('[type="submit"]').prop('disabled', true).addClass('is-loading');
+                        },
+                        success: function(data) {
+                            if (data.success == 1){
+                                //redirect
+                                if($('body').attr('id') == 'login') {
+                                    window.location.href = '/';
+                                    return;
+                                }
+
+                                // refresh the page if the user can view the toolbar
+                                if (data.canViewToolbar && !$('#ccm-toolbar').length) {
+                                    window.location.reload();
+                                    return;
+                                }
+
+                                $form.closest('.modal').modal('hide');
+                                _paq.push(['setUserId', data.uID]);
+                                _paq.push(['trackEvent', 'user', 'login', 'email']);
+
+                                CCM_LOGGED_IN = 'true';
+                                $(window).trigger($.Event("signedin.hive", { uID: data.uID, userName: data.userName, logout_token: data.logout_token, add_conversation_message_token: data.add_conversation_message_token, add_conversations_file_token: data.add_conversations_file_token, attributes: data.attributes, profile: data.profile, canViewToolbar: data.canViewToolbar }));
+                            } else {
+                                var $alert = $form.find('.error-message');
+
+                                if(IsJsonString(data.msg)){
+                                    var msg = JSON.parse(data.msg);
+                                    if(msg.error_type=="user_previous_platform"){
+                                        $alert.addClass('alert alert-info').attr('aria-hidden', false);
+                                        $alert.append('<p>' + msg.error_msg + '</p>');
+                                        $form.find('.form-group').hide();
+                                    }
+                                } else {
+                                    $alert.addClass('alert alert-danger').attr('aria-hidden', false);
+                                    $.each(data.msg, function(i, val) {
+                                        $alert.append('<p>' + val + '</p>');
+                                    });
+                                }
+                                $alert.fadeIn();
+                                $alert.focus();
+                            }
+                        },
+                        complete: function() {
+                            $form.find('[type="submit"]').prop('disabled', false).removeClass('is-loading');
+                        }
+                    });
+                }
+            });
+
+            $('.js-login-form').validate({
+                rules: {
+                    uName: {required: true, email: true},
+                    uPassword: {required: true}
+                },
+                messages: {
+                    uName: {required: $t('validation.emailRequired')},
+                    uPassword: {required: $t('validation.passwordRequired')}
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+
+            $('#signUpForm').on('grecaptcha.callback', function(e) {
+                $('#signUpForm').submit();
+            });
+
+            $('#signUpForm').validate({
+                rules: {
+                    uName: {
+                        required: true,
+                        minlength: $('[name=uName][minlength]').attr('minlength') || 3,
+                        maxlength: $('[name=uName][maxlength]').attr('maxlength') || 64,
+                        noSpace:true,
+                        dontStartWith: ['.', '_'],
+                        regexMatchesAny: ['A-Z', 'a-z', '0-9', '_', '.'],
+                    },
+                    uEmail: {required: true, email: true},
+                    uPassword: {
+                        required: true,
+                        minlength: $('[name=uPassword][minlength]').attr('minlength') || 5,
+                        maxlength: $('[name=uPassword][maxlength]').attr('maxlength') || 128,
+                        strongPassword: true
+                    },
+                    uPasswordConfirm: {
+                        equalTo : '#signupFormPassword'
+                    },
+                    'sweeter-email': {
+                        maxlength: 0
+                    },
+                    'sweeter-input': {
+                        maxlength: 0
+                    },
+                    'sweeter-text-area': {
+                        maxlength: 0
+                    }
+                },
+                messages: {
+                    uName: {
+                        required: $t('validation.provideUsername')
+                    },
+                    uEmail: {
+                        required: $t('validation.provideEmail')
+                    },
+                    uPassword: {
+                        required: $t('validation.providePassword'),
+                        minlength: $t('validation.passwordMinLength', { length: ($('[name=uPassword][minlength]').attr('minlength') || 5) }),
+                        strong: "strong fail"
+                    },
+                    uPasswordConfirm: {
+                        equalTo: $t('validation.passwordMismatch'),
+                    }
+                },
+                submitHandler: function(form) {
+                    var $form = $(form);
+
+                    if(typeof HiveAntiSpam !== 'undefined'
+                        && !HiveAntiSpam.evaluateRequest($form))
+                    {
+                        return false;
+                    }
+
+                    $.ajax({
+                        type: $form.attr('method'),
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                        dataType: 'json',
+                        headers: {
+                            'X-Locale': (window.CCM_ACTIVE_LOCALE || 'en_US')
+                        },
+                        beforeSend: function(xhr, opts) {
+                            $form.find('.error-message').attr('aria-hidden', true).removeClass().addClass('error-message').text('');
+                            $form.find('[type="submit"]').prop('disabled', true).addClass('is-loading');
+                        },
+                        success: function(data) {
+                            if (data.success == 1) {
+                                $(window).trigger($.Event("signedup.hive", { userName: data.userName }));
+                                var nextModal = '#userDetailsModal';
+                                if (!!$form.attr('data-next-modal')) {
+                                    nextModal = $form.attr('data-next-modal');
+                                }
+
+                                if (typeof data.msg !== 'undefined' && data.msg !== '') {
+                                    var $msgContainer = $('#signUpConfirmModal').find('.js-success-msg-container');
+                                    $msgContainer.empty();
+                                    if (Array.isArray(data.msg)) {
+                                        data.msg.forEach(function(m) {
+                                            $('<p/>').text(m).appendTo($msgContainer);
+                                        });
+                                    } else {
+                                        $('<p>').text(data.msg).appendTo($msgContainer);
+                                    }
+                                }
+
+                                switchModals(nextModal);
+                                if (typeof data.isLoggedIn !== 'undefined' && data.isLoggedIn === true) {
+                                    _paq.push(['setUserId', data.uID]);
+                                    CCM_LOGGED_IN = 'true';
+                                    $(window).trigger($.Event("signedin.hive", {
+                                        uID: data.uID,
+                                        userName: data.userName,
+                                        logout_token: data.logout_token,
+                                        add_conversation_message_token: data.add_conversation_message_token,
+                                        add_conversations_file_token: data.add_conversations_file_token,
+                                        attributes: data.attributes,
+                                        profile: data.profile
+                                    }));
+                                }
+                                _paq.push(['trackEvent', 'user', 'signup', 'email']);
+                            } else {
+                                _paq.push(['trackEvent', 'user', 'signup_attempt', 'email']);
+                                var validator = $form.validate();
+                                var $alert = $form.find('.error-message');
+                                $alert.addClass('alert alert-danger');
+
+                                $.each(data.errors, function(i, msg) {
+                                    if (msg == "The email address " + $form.find('[name="uEmail"]').val() + " is already in use. Please choose another.") {
+                                        validator.showErrors({
+                                            "uEmail": "This email is already taken! Try another or <a href='#' data-target='#loginModal' role='button' class='js-modal-switch'>Log In</a>?"
+                                        });
+                                    } else if (msg == "The username " + $form.find('[name="uName"]').val() + " already exists. Please choose another") {
+                                        validator.showErrors({
+                                            "uName": "This username is already taken! Try another or <a href='#' data-target='#loginModal' role='button' class='js-modal-switch'>Log In</a>?"
+                                        });
+                                    } else if (msg == "A username may only contain letters, numbers and spaces.") {
+                                        validator.showErrors({
+                                            "uName": msg
+                                        });
+                                    } else if (msg == "A username may only contain letters or numbers.") {
+                                        validator.showErrors({
+                                            "uName": msg
+                                        });
+                                    } else {
+                                        $alert.append(msg + '<br />');
+                                    }
+                                    $alert.focus();
+                                });
+
+                                if ($alert.children().length) {
+                                    $alert.show().attr('aria-hidden', false);
+                                } else {
+                                    $alert.hide().attr('aria-hidden', true);
+                                }
+                            }
+                        },
+                        complete: function () {
+                            $form.find('[type="submit"]').prop('disabled', false).removeClass('is-loading');
+
+                            if(typeof HiveAntiSpam !== 'undefined') {
+                                HiveAntiSpam.reset($form);
+                            }
+                        },
+                    });
+                }
+            });
+
+            $('.js-register-form').on('grecaptcha.callback', function() {
+                $('.js-register-form').submit();
+            });
+
+            $('.js-register-form').validate({
+                rules: {
+                    uName: {
+                        required: true,
+                        minlength: $('[name=uName][minlength]').attr('minlength') || 3,
+                        maxlength: $('[name=uName][maxlength]').attr('maxlength') || 64,
+                        noSpace:true,
+                        dontStartWith: ['.', '_'],
+                        regexMatchesAny: ['A-Z', 'a-z', '0-9', '_', '.'],
+                    },
+                    uEmail: {required: true, email: true},
+                    uPassword: {
+                        required: true,
+                        minlength: $('[name=uPassword][minlength]').attr('minlength') || 5,
+                        maxlength: $('[name=uPassword][maxlength]').attr('maxlength') || 128,
+                        strongPassword: true
+                    },
+                    uPasswordConfirm: {
+                        equalTo : '#uPassword'
+                    },
+                    'sweeter-email': {
+                        maxlength: 0
+                    },
+                    'sweeter-input': {
+                        maxlength: 0
+                    },
+                    'sweeter-text-area': {
+                        maxlength: 0
+                    }
+                },
+                messages: {
+                    uName: {
+                        required: $t('validation.provideUsername')
+                    },
+                    uEmail: {
+                        required: $t('validation.provideEmail')
+                    },
+                    uPassword: {
+                        required: $t('validation.providePassword'),
+                        minlength: $t('validation.passwordMinLength', { length: ($('[name=uPassword][minlength]').attr('minlength') || 5) }),
+                        strong: "strong fail"
+                    },
+                    uPasswordConfirm: {
+                        equalTo: $t('validation.passwordMismatch'),
+                    }
+                },
+                submitHandler: function(form) {
+                    var $form = $(form);
+
+                    if(typeof HiveAntiSpam !== 'undefined'
+                        && !HiveAntiSpam.evaluateRequest($form))
+                    {
+                        return false;
+                    }
+
+                    form.submit();
+                }
+            });
+
+            $('#userDetailsForm').validate({
+                submitHandler: function(form) {
+                    var $form = $(form);
+                    $.ajax({
+                        type: $form.attr('method'),
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                        dataType: 'json',
+                        headers: {
+                            'X-Locale': (window.CCM_ACTIVE_LOCALE || 'en_US')
+                        },
+                        beforeSend: function() {
+                            $form.find('.error-message').attr('aria-hidden', true).removeClass().addClass('error-message').text('');
+                            $form.find('[type="submit"]').prop('disabled', true).addClass('is-loading');
+                        },
+                        success: function(data) {
+                            $form.find('[type="submit"]').prop('disabled', false).removeClass('is-loading');
+
+                            if (data.success == 1) {
+                                switchModals('#signUpConfirmModal');
+                            } else {
+                                var $alert = $form.find('.error-message');
+                                $alert.addClass('alert alert-danger');
+
+                                $.each(data.errors, function(i, msg) {
+                                    $alert.append(msg + '<br/>');
+                                });
+
+                                if ($alert.children().length) {
+                                    $alert.show().attr('aria-hidden', false);
+                                } else {
+                                    $alert.hide().attr('aria-hidden', true);
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+
+            $('#resetPasswordForm').on('grecaptcha.callback', function(e) {
+                $('#resetPasswordForm').submit();
+            });
+
+            $('#resetPasswordForm').validate({
+                rules: {
+                    uEmail: {required: true, email: true}
+                },
+                submitHandler: function(form) {
+                    var $form = $(form);
+
+                    if(typeof HiveAntiSpam !== 'undefined'
+                        && !HiveAntiSpam.evaluateRequest($form))
+                    {
+                        return false;
+                    }
+
+                    $.ajax({
+                        type: $form.attr('method'),
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                        dataType : 'json',
+                        headers: {
+                            'X-Locale': (window.CCM_ACTIVE_LOCALE || 'en_US')
+                        },
+                        beforeSend: function() {
+                            $form.find('.error-message').fadeOut().attr('aria-hidden', true).removeClass().addClass('error-message').children().remove();
+                            $form.find('[type="submit"]').prop('disabled', true).addClass('is-loading');
+                        },
+                        success: function(data) {
+                            $form.find('[type="submit"]').prop('disabled', false).removeClass('is-loading');
+
+                            var $alert = $form.find('.error-message');
+
+                            if (data.success == 1) {
+                                $form.find('.form-group').hide();
+                                $alert.addClass('alert alert-success');
+                                $alert.html(data.msg);
+                            }
+                            else {
+                                $alert.html('');
+                                $alert.addClass('alert alert-danger');
+                                $.each(data.msg, function(i, m) {
+                                    $alert.append(m + '<br/>');
+                                });
+                            }
+
+                            $alert.fadeIn();
+                        },
+                        complete: function () {
+                            $form.find('[type="submit"]').prop('disabled', false).removeClass('is-loading');
+                            if(typeof HiveAntiSpam !== 'undefined') {
+                                HiveAntiSpam.reset($form);
+                            }
+                        }
+                    });
+                }
+            });
+
+            $('.js-forgot-password-form').on('grecaptcha.callback', function() {
+                $('.js-forgot-password-form').submit();
+            });
+
+            $('.js-forgot-password-form').validate({
+                rules: {
+                    uEmail: {required: true, email: true}
+                },
+                submitHandler: function(form) {
+                    var $form = $(form);
+
+                    if (typeof HiveAntiSpam !== 'undefined' && !HiveAntiSpam.evaluateRequest($form)) {
+                        return false;
+                    }
+
+                    form.submit();
+                }
+            });
+
+            $('.input-group-password-toggle').on('click', '.js-btn-toggle-password', function() {
+                var $passwordField = $(this).closest('.input-group-password-toggle').find('input');
+                if ($passwordField.length < 1) return;
+
+                $(this).toggleClass('icon-hide-password');
+
+                if ($passwordField.attr('type') === 'password') {
+                    $passwordField.attr('type', 'text');
+                    $(this).attr('aria-pressed', 'true')
+                        .attr('style', 'background-image: url(' + $(this).attr('data-hide-img') + ')')
+                        .attr('title', $t('hidePassword'))
+                        .attr('aria-label', $t('hidePassword'));
+                } else {
+                    $passwordField.attr('type', 'password');
+                    $(this).attr('aria-pressed', 'false')
+                        .attr('style', 'background-image: url(' + $(this).attr('data-show-img') + ')')
+                        .attr('title', $t('showPassword'))
+                        .attr('aria-label', $t('showPassword'));
+                }
+            });
+        });
+
+    window.openModals = {
+        loginModal: false,
+        signUpModal: false,
+        userDetailsModal: false,
+        privacyPolicyModal: false,
+        termsOfUseModal: false,
+        signUpConfirmModal: false
+    };
+
+    window.switchModals = function (target, current) {
+        var $current, $target;
+        if (current === undefined || current === null) {
+            $current = $('.modal.in');
+        } else {
+            $current = $(current);
+        }
+        $target = $(target);
+
+        if ($current.length > 1) {
+            var $topMostModal = $current.first();
+            $current.each(function() {
+                var $this = $(this);
+                if (parseInt($this.css('z-index')) >= parseInt($topMostModal.css('z-index'))) {
+                    $topMostModal = $this;
+                }
+            });
+            $current = $topMostModal;
+        }
+
+        $current.one('hide.bs.modal', function () {
+            if (openModals[$target.attr('id')] !== undefined) {
+                openModals[$target.attr('id')] = true;
+            }
+        }).one('hidden.bs.modal', function () {
+            $target.modal('show');
+        }).modal('hide');
+    };
+
+    // set aria attributes for open and closed modals
+    $('.modal').on('show.bs.modal', function(e) {
+        $(e.target).attr({
+            'aria-hidden': false,
+            'tabindex': '0'
+        });
+    }).on('hide.bs.modal', function(e) {
+        $(e.target).attr({
+            'aria-hidden': true,
+            'tabindex': '-1'
+        });
+    });
+
+    $('#loginModal').on('hidden.bs.modal', function() {
+        $('#loginModal form .form-group').show();
+        $('#loginModal').find('.error-message').attr('aria-hidden', true).removeClass().addClass('error-message').children().remove();
+    });
+
+    $('#signUpModal').on('shown.bs.modal', function() {
+        setTimeout(function() {
+            if(typeof onLoadRecaptchaCallback !== 'undefined') { onLoadRecaptchaCallback(); }
+        }, 1000);
+    });
+
+    $('#resetPasswordModal').on('shown.bs.modal', function() {
+        setTimeout(function() {
+            if(typeof onLoadRecaptchaCallback !== 'undefined') { onLoadRecaptchaCallback(); }
+        }, 1000);
+    });
+
+    $('#signUpModal').on('hidden.bs.modal', function() {
+        openModals.signUpModal = false;
+        if (openModals.privacyPolicyModal || openModals.termsOfUseModal) {
+            openModals.signUpModal = true;
+        }
+    });
+
+    $('#userDetailsModal').on('hidden.bs.modal', function() {
+        if (openModals.ideaModal) {
+            openModals.ideaModal = false;
+            reopenIdeaModal();
+        }
+        openModals.userDetailsModal = false;
+
+        //redirect
+        if($('body').attr('id') == 'login'
+            && !openModals.userDetailsModal
+                && !openModals.signUpConfirmModal) {
+            window.location.reload();
+            return;
+        }
+    });
+
+    $('#privacyPolicyModal').on('hidden.bs.modal', function() {
+        if (openModals.signUpModal) {
+            openModals.signUpModal = false;
+            $('#signUpModal').modal('show');
+        }
+        openModals.privacyPolicyModal = false;
+    });
+
+    $('#termsOfUseModal').on('hidden.bs.modal', function() {
+        if (openModals.signUpModal) {
+            openModals.signUpModal = false;
+            $('#signUpModal').modal('show');
+        }
+        openModals.termsOfUseModal = false;
+    });
+
+    /** redirect to home page if main page is login or register */
+    $('#signUpConfirmModal').on('hidden.bs.modal', function() {
+        if(openModals.signUpConfirmModal) {
+            openModals.signUpConfirmModal = false;
+
+            //redirect
+            if($('body').attr('id') == 'login') {
+                window.location.reload();
+                return;
+            }
+        }
+    });
+
+    $(document).on('click', '.js-modal-switch', function(e) {
+        e.preventDefault();
+        if ($(this).data('target') && $('.modal.in').length) {
+            switchModals($(this).data('target'));
+        }
+    });
+
+    // Since select2 is older version, and doesn't support 'unselect' event
+    var selectVal, selectPrevVal = [];
+    $('#signupFormselect, .select2.select-multiple').on('change', function(e) {
+        selectPrevVal = (!!selectVal && selectVal.length > 0) ? selectVal : selectPrevVal;
+        optionAll = $(this).find('option[value=0]');
+        options = $(this).find('option');
+        selectVal = $(this).val();
+        if (!!selectVal && selectVal.indexOf('0') === 0) { // if is 'all'
+            $(this).find('option:not([value=0])').prop('selected', true);
+        } else if (!!selectPrevVal && selectPrevVal.indexOf('0') === 0) {
+            options.prop('selected', false);
+        } else if (!selectVal || selectVal.length <= 0) { // if no values selected
+            optionAll.prop('disabled', false);
+        } else { // anything other than null or all
+            optionAll.prop('disabled', true);
+        }
+    });
+
+
+    var initAuthTypeSwitch = function($container) {
+        var $auth0 = $container.find('[data-handle="auth0_hdp"]');
+        if (!$auth0.length) {
+            return;
+        }
+        var $concrete = $container.find('[data-handle="concrete"]');
+        var $authTypes = $container.find('div[data-handle]');
+        $concrete.find('[name="uName"]').on('input', function(e) {
+            if (e.target.value && /@(harvestdp\.com|socialpinpoint\.com|mysite\.com\.au)$/.test(e.target.value)) {
+                $authTypes.hide();
+                $auth0.show();
+                $auth0.find('[name="uName"]').val(e.target.value);
+                $auth0.find('button[type="submit"]').focus();
+            }
+        });
+        $auth0.find('button[type="button"]').on('click', function() {
+            $authTypes.show();
+            $auth0.hide();
+            $concrete.find('[name="uName"]').focus();
+        });
+    }
+    initAuthTypeSwitch($('#loginModal'));
+    initAuthTypeSwitch($('.login-page'));
+
+    $('#fillUserAttributesForm').validate();
+
+    var hub = !!window.Sentry && (window.SentryHubGlobal || window.Sentry.getCurrentHub());
+
+    $(window).on('signedin.hive', function(e) {
+        if (e.uID !== '' && hub) {
+            hub.configureScope(function(scope){ scope.setTag('isLoggedIn', true) });
+        }
+    });
+
+    $(window).on('signedout.hive', function(e) {
+        if (typeof e.tokens !==  'undefined') {
+            if (typeof e.tokens.login_token !== 'undefined') {
+                $('#logInForm').find('[name="ccm_token"]').val(e.tokens.login_token);
+            }
+            if (typeof e.tokens.register_token !== 'undefined') {
+                $('#signUpForm').find('[name="ccm_token"]').val(e.tokens.register_token);
+            }
+        }
+        $('#ccm-page-controls-wrapper').remove();
+        $('#page').attr('style', 'padding-top:0!important');
+
+        hub && hub.configureScope(function(scope){ scope.setTag('isLoggedIn', false) });
+    });
+
+});

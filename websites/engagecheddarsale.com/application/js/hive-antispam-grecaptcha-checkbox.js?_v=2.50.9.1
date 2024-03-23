@@ -1,0 +1,78 @@
+(function (global, $) {
+    'use strict';
+
+    var debug = false;
+
+    var HiveAntiSpam;
+    window.grecaptchas = [];
+
+    HiveAntiSpam = {
+        onLoad: function () {
+            debug && console.info('initialize checkbox recaptchas');
+            $.each($('.grecaptcha-checkbox'), function () {
+                var object = $(this);
+                if(typeof object.attr('id')  !== 'undefined' && !object.is(':hidden'))
+                {
+                    var g = window.grecaptchas.slice();
+                    var skip = false;
+                    $.each(g, function(i,o) {
+                        if(o.el_id == object.attr('id')) {
+                            skip = true;
+                            return false;
+                        }
+                    });
+
+                    if(skip){
+                        return true;
+                    }
+
+                    var grecaptcha_widget_id = grecaptcha.render(object.attr('id'), {
+                        'sitekey' : object.data('sitekey'),
+                        'theme' : object.data('theme'),
+                        'callback' : function(token) {
+                            debug && console.info('Callback after processing ['+ object.attr('id') +']: ' + token);
+                            object.parents('form').find('[name=g-recaptcha-response]').val(token);
+                        }
+                    });
+
+                    if(typeof grecaptcha_widget_id !== 'undefined'){
+                        window.grecaptchas.push({
+                            'type': 'checkbox',
+                            'el_id': object.attr('id'),
+                            'grecaptcha_id': grecaptcha_widget_id
+                        });
+                    }
+                }
+            });
+
+            $('.grecaptcha-checkbox')
+                .parents('.jl_magic_tabs_divider')
+                .off('jl_magic_tabs_show', onLoadRecaptchaCallback)
+                .on('jl_magic_tabs_show', onLoadRecaptchaCallback);
+        },
+        onChallengeClose : function () {},
+        onChallengeOpen : function () {},
+        evaluateRequest : function (form) {
+            return true;
+        },
+        reset: function (form) {
+            /* reset all captchas */
+            if(window.grecaptchas)
+            {
+                $.each(window.grecaptchas, function (i,o) {
+                    if( o.grecaptcha_id > -1 || (el_id != "" && o.el_id == el_id)) {
+                        grecaptcha.reset(o.grecaptcha_id);
+                    }
+                });
+            }
+        },
+        initListeners : function () {},
+    };
+
+    global.HiveAntiSpam = HiveAntiSpam;
+
+}(this, jQuery));
+
+var onLoadRecaptchaCallback = function () {
+    HiveAntiSpam.onLoad();
+};

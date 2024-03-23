@@ -1,0 +1,11 @@
+$(function() {
+	var projectNames = []
+	var $projects = $('.projects-list [data-project-name]')
+	$projects.map(function() {
+		projectNames.push($(this).data('project-name'))
+	})
+	// autocompleting project name filter field
+	$('.js-projects-filter [name="keyword"]').autocomplete({
+		source: projectNames,
+	})
+})

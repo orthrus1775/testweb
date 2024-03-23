@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="Official Website of Cheddarsale, Wisconsin" />
+<meta name="keywords" content="Village of Cheddarsale, Wisconsin" />
+<meta property="og:image" content="" />
+<!-- OpenGraph meta tags -->
+<meta property="og:title" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="" />
+<script src="https://kit.fontawesome.com/16dec492e8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/GO_cheddarsale-wi_2021_resp.css" />
+<link rel="stylesheet" type="text/css" href="/repository/designs/parts/styles_resp/print.css" media="print" />
+<link rel="icon" type="image/png" href="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/images/favicon.png" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/images/favicon.ico" /><![endif]-->
+<link rel="apple-touch-icon" href="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/images/apple-touch-icon.png" />
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta name="msapplication-TileImage" content="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/images/mstile.png" />
+<title>Village of Cheddarsale, Wisconsin</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/repository/designs/parts/scripts/global.js"></script>
+<script src="/repository/designs/parts/scripts/global_resp.js"></script>
+<script>
+        var designPath = "/repository/designs/templates/GO_cheddarsale-wi_2021_resp";
+        var uploadPath = "/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads";
+      </script>
+<script src="/repository/designs/parts/scripts/menunav_resp.js"></script>
+<script src="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/mobile.js"></script>
+<script src="/repository/designs/parts/scripts/jquery.backTop.js"></script>
+<script src="/repository/designs/parts/scripts/heightmatch.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, minimum-scale=0.8, user-scalable=yes" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+			<link rel="preconnect" href="https://fonts.gstatic.com"/>
+			<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet"/> 
+		<<!-- Google tag (gtag.js) -->
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-X92NJBK5F9'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+ gtag('config', 'G-X92NJBK5F9');
+</script></head>
+<body class="home">
+<div class="skiptomain"><a href="#mainContent" id="skipLink">Skip to main content</a></div>
+<div class="allContainer">
+<header role="banner" class="page">
+<div class="spacer"><!----></div>
+<div class="topbar">
+<div class="notifications">
+<div class="widthContainer">
+<a class="closenotification" href="#"><span class="hidden">close notification</span><i class="fa fa-window-close" aria-hidden="true"><!----></i></a>
+<div class="notification">
+<span>Alternate Side Parking starts<strong>&nbsp;November 15&nbsp;</strong>regardless of weather conditions. More Info:&nbsp;<a href="https://cheddarsale.wi.us/index.asp?SEC=F1A83AD6-B9DF-45A3-A035-81CE4F194F3E">Alternate Side Parking</a></span>
+</div>
+<div class="notification">
+<span>Residents please watch your mail, NEW <a href="https://cheddarsale.wi.us/yardwaste">Yard Waste Site</a> Permits will be mailed this week (March 6, 2024).&nbsp;</span>
+</div>
+<!----></div>
+</div>
+<nav class="top block table">
+<ul>
+<li><div class="titlewrap">
+<a class="title" href="/"><img src="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/images/title.png" alt="Village of Cheddarsale, Wisconsin" /></a>
+</div>
+</li>
+<li><a id="mobileSearchDropdown" href="#" aria-label="search" class="searchIcon"><i class="fa fa-search" aria-hidden="true"><!----></i><div>search</div></a></li>
+<li><a id="mobileNavDropdown" href="#" aria-label="menu" class="navIcon"><i class="fa fa-bars" aria-hidden="true"><!----></i><div>menu</div></a></li>
+</ul>
+</nav>
+<div class="searchDrop">
+<form role="search" class="mobilesearch" method="get" name="formSearchMobile" action="index.asp">
+<div class="fieldAndButton">
+<label class="mobileSearchLabel hidden" for="mobileSearchField">Search</label>
+<input id="mobileSearchField" class="searchField" name="keyword" value="" />
+<a href="#" id="mobilesearchbutton" onclick="$('.mobilesearch').submit();" class="searchMag" aria-hidden="true">
+<i class="fa fa-search" aria-hidden="true">
+<!----></i>
+<span class="hidden">Search</span>
+</a>
+<input type="submit" class="hidden" value="Search" />
+</div>
+<input type="hidden" name="SEC" value="40E6C039-52A1-4116-AA61-0A14BF80DF19" />
+</form>
+<!----></div>
+<div class="navDrop">
+<nav class="primary block mobilemenu">
+<ul>
+<li class="current actual">
+<a href="//www.vi.cheddarsale.wi.us/"><span>Home</span></a>
+</li><li>
+<a target="_blank" href="https://www.engagecheddarsale.com/"><span>Engage Cheddarsale</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/visitors"><span>Visitors</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/calendar"><span>Events</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={280FDF47-2652-44F6-84E5-A7297874AA10}"><span>Parks & Trails</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={9E2EA05C-170C-4CF8-9B87-051D20E2DB2A}"><span>Yahara River</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/residents"><span>Residents</span></a>
+<ul>
+<li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/faq"><span>I Want To...</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/disposal"><span>Dispose of Items</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?SEC=441FC524-2DC0-4DCA-A17D-EA245CD507D5&amp;DE=B5011063-10D2-4615-B652-CD715549511A"><span>Get a Building Permit</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={E7C6BCAA-C170-45F5-A305-C739D8EAFABD}"><span>Get a Dog License</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/payments"><span>Make an Online Payment</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={05A4A905-9D3E-472E-9C89-61C1C399B6E3}"><span>Make a Park Shelter Reservation</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/recreation"><span>Register for Rec. Programs</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/info"><span>Stay Informed</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/calendar"><span>View Calendar of Events</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/info"><span>Stay Informed</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/calendar"><span>Calendar of Events</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=6D49A349-2375-4F02-8347-9A4899781B18"><span>Community Links</span></a>
+<ul>
+<li>
+<a target="_blank" href="http://www.cheddarsalecenter.org/"><span>Community & Senior Center</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsalelibrary.org/"><span>Public Library</span></a>
+</li><li>
+<a target="_blank" href="http://cheddarsalewalleyecreekfire.com/"><span>Fire & EMS Department</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsalearea.com/"><span>Chamber of Commerce</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsale.k12.wi.us/"><span>Cheddarsale Area Schools</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/foodpantry"><span>Cheddarsale Walleyecreek Food Pantry</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={798A4408-4E5B-4FA8-AB2F-5F291D076421}"><span>Elections & Voting</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/farmersmarket"><span>Farmers Market</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/utilityservices"><span>Utility Services (Water)</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/yaharariverfest"><span>Yahara Riverfest</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/departments"><span>Departments</span></a>
+<ul>
+<li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/administration"><span>Administration</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/licenses"><span>Licenses</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/elections"><span>Voting & Elections</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/assessor"><span>Assessor & Assessment</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/budgettax"><span>Budget & Tax</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="http://developcheddarsale.com/"><span>Economic & Community Development</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/parks"><span>Parks and Trails</span></a>
+<ul>
+<li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/cheddarsaleparks"><span>Parks and Conservancy Land</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={05A4A905-9D3E-472E-9C89-61C1C399B6E3}"><span>Park Shelter Reservations</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=3C25FBD3-5443-4B7B-9DDE-DF1824F186E2"><span>Cheddarsale Athletic Complex</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=440D7EB2-4E9D-4D13-9221-BF189C414BF8"><span>Athletic Field Rentals</span></a>
+</li></ul>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/planning"><span>Planning, Zoning & Development</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?SEC=441FC524-2DC0-4DCA-A17D-EA245CD507D5&amp;DE=79C5365C-ED64-4EA5-A5A9-5EB480DBBF5A"><span>Adopted Village Plans</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=B6F0CBFB-07D0-43CB-914B-AB10321E8C57"><span>Property Maintenance Complaints</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/redevelopment"><span>Redevelopment Planning</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/compplan"><span>Updated Comprehensive Plan</span></a>
+</li></ul>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/police"><span>Police Department</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/publicservice"><span>Public Services</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/curbsideservices"><span>Curbside Services</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/disposal"><span>Garbage &  Recycling</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/streets"><span>Streets</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=F1A83AD6-B9DF-45A3-A035-81CE4F194F3E"><span>Alternate Side Parking</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=5EC4AB84-8F91-4551-BB17-51AFA30F5FF0"><span>Mailbox Damaged by Village Snow Plow</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/winter"><span>Snow and Ice</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=0BEAAF20-9562-4DE2-9448-BDAB97EAB9DD"><span>Report a Decorative Village Light Out</span></a>
+</li><li>
+<a target="_blank" href="https://www.alliantenergy.com/CustomerService/AlliantEnergyService/OutageCenter/RequestaStreetlightRepair"><span>Report a Street Light Out</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/utilityservices"><span>Utility Services (Water)</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/yardwaste"><span>Yard Waste</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/recreation"><span>Recreation</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/currentprograms"><span>Current Programs</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/discounttickets"><span>Discount Tickets</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/fitpass"><span>Fit Pass</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/register"><span>Register for Programs</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/specialevents"><span>Special Events</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/sponsorship"><span>Sponsorship</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/community"><span>Community Links</span></a>
+<ul>
+<li>
+<a href="https://www.cheddarsalecenter.org/"><span>Cornerstone Community Center</span></a>
+</li><li>
+<a href="https://www.cheddarsalelibrary.org/"><span>Public Library</span></a>
+</li><li>
+<a href="http://cheddarsalefire.com/"><span>Fire & EMS Department</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsalearea.com/"><span>Chamber of Commerce</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsale.k12.wi.us/"><span>Cheddarsale Area Schools</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/foodpantry"><span>DeForest Area Food Pantry</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/court"><span>Cheddarsalewalleyecreek Municipal Court</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/government"><span>Government</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/committeescommissions"><span>Committees & Commissions</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/officials"><span>Elected Officials</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={798A4408-4E5B-4FA8-AB2F-5F291D076421}"><span>Elections</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=E1B9ED1A-3658-4B17-9A24-9D052CFC18B4"><span>Meeting Agendas, Minutes & Recordings</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/ordinances"><span>Ordinances</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/parking"><span>Recreational Vehicles</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/grass"><span>Noxious Weeds</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/fire"><span>Fire Pits & Grills</span></a>
+</li></ul>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/projectsbids"><span>Projects & Bids</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/employment"><span>Village Employment</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=647F515C-98D1-4578-95AA-4BC22FAE9ABC"><span>Reserve Meeting Rooms</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li></ul>
+</li><li><div class="weather">
+<a href="http://forecast.weather.gov/MapClick.php?lat=43.14056&amp;lon=-89.34528" target="_blank">35.0° A Few Clouds</a>
+<!----></div></li>
+<li>
+<div class="mobileSocial">
+<div class="socialTools">
+<a href="https://www.facebook.com/CheddarsaleWI/" title="Connect with us on Facebook" target="_blank">
+<img src="/repository/designs/images/fb_24.png" alt="Facebook" />
+</a>
+<a href="https://twitter.com/CheddarsaleWI" title="Connect with us on Twitter" target="_blank">
+<img src="/repository/designs/images/tw_24.png" alt="Twitter" />
+</a>
+</div>
+<!----></div>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="topbar2">
+<div class="notifications">
+<div class="widthContainer">
+<a class="closenotification" href="#"><span class="hidden">close notification</span><i class="fa fa-window-close" aria-hidden="true"><!----></i></a>
+<div class="notification">
+<span>Alternate Side Parking starts<strong>&nbsp;November 15&nbsp;</strong>regardless of weather conditions. More Info:&nbsp;<a href="https://cheddarsale.wi.us/index.asp?SEC=F1A83AD6-B9DF-45A3-A035-81CE4F194F3E">Alternate Side Parking</a></span>
+</div>
+<div class="notification">
+<span>Residents please watch your mail, NEW <a href="https://cheddarsale.wi.us/yardwaste">Yard Waste Site</a> Permits will be mailed this week (March 6, 2024).&nbsp;</span>
+</div>
+<!----></div>
+</div>
+<script>
+			$(window).load(function() {
+				if (getCookie('notifications') != 'off') {
+					$('.notifications').slideDown(1000, function() { 
+						$('.spacer').height($('.topbar').height()); 
+					});
+				}
+				$('.notifications a.closenotification').click(function() {
+					$('.notifications').slideUp(1000, function() { 
+						$('.spacer').height($('.topbar').height()); 
+					});
+					setCookie('notifications', 'off', 0);
+				});
+			});
+		</script>
+<div class="banner">
+<div class="searchSocial">
+<div class="weather">
+<a href="http://forecast.weather.gov/MapClick.php?lat=43.14056&amp;lon=-89.34528" target="_blank">35.0</a>°  
+						<a href="http://forecast.weather.gov/MapClick.php?lat=43.14056&amp;lon=-89.34528" target="_blank">A Few Clouds</a>
+<!----></div>
+<div class="searchPositioner">
+<form class="search bar" method="get" name="formSearch" action="index.asp">
+<div class="fieldAndButton">
+<label class="hidden" for="searchField">Search</label>
+<input id="searchField" class="searchField" name="keyword" value="" />
+<a href="#" id="searchbutton" onclick="$('.search.bar').submit();" aria-label="search button" class="searchMag">
+<i class="fa fa-search" aria-hidden="true">
+<!----></i>
+<span class="hidden">Search</span>
+</a>
+<input type="submit" class="hidden" value="Search" tabindex="-1" />
+</div>
+<input type="hidden" name="SEC" value="40E6C039-52A1-4116-AA61-0A14BF80DF19" />
+</form>
+<script>
+        $(document).ready(function() {
+        var prompt = "Search";
+        var $s = $(".search.bar .searchField");
+        $s.focus(clearPrompt).blur(putPrompt).change(trimfield);
+        function clearPrompt() { if ($s.val() == prompt) $s.val(""); }
+        function putPrompt() { if ($.trim($s.val()) == "") $s.val(prompt); }
+        function trimfield() {
+        var searchval = $.trim($('#searchField').val());
+        searchval = searchval.replace(/\s{2,}/g,' ');
+        $('#searchField').val(searchval);
+        }
+        putPrompt();
+        });
+      </script>
+<!----></div>
+<div class="socialTools">
+<a href="https://www.facebook.com/CheddarsaleWI/" title="Connect with us on Facebook" target="_blank">
+<img src="/repository/designs/images/fb_24.png" alt="Facebook" />
+</a>
+<a href="https://twitter.com/CheddarsaleWI" title="Connect with us on Twitter" target="_blank">
+<img src="/repository/designs/images/tw_24.png" alt="Twitter" />
+</a>
+</div>
+<div class="clr"><!----></div>
+</div>
+<div class="titlewrap">
+<a class="title" href="/"><img src="/repository/designs/templates/GO_cheddarsale-wi_2021_resp/images/title.png" alt="Village of Cheddarsale, Wisconsin" /></a>
+</div>
+<nav class="primary menu block horizontal">
+<h2 class="hidden">Navigation, primary</h2>
+<ul>
+<li class="current actual">
+<a href="//www.vi.cheddarsale.wi.us/"><span>Home</span></a>
+</li><li>
+<a target="_blank" href="https://www.engagecheddarsale.com/"><span>Engage Cheddarsale</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/visitors"><span>Visitors</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/calendar"><span>Events</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={280FDF47-2652-44F6-84E5-A7297874AA10}"><span>Parks & Trails</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={9E2EA05C-170C-4CF8-9B87-051D20E2DB2A}"><span>Yahara River</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/residents"><span>Residents</span></a>
+<ul>
+<li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/faq"><span>I Want To...</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/disposal"><span>Dispose of Items</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?SEC=441FC524-2DC0-4DCA-A17D-EA245CD507D5&amp;DE=B5011063-10D2-4615-B652-CD715549511A"><span>Get a Building Permit</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={E7C6BCAA-C170-45F5-A305-C739D8EAFABD}"><span>Get a Dog License</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/payments"><span>Make an Online Payment</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={05A4A905-9D3E-472E-9C89-61C1C399B6E3}"><span>Make a Park Shelter Reservation</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/recreation"><span>Register for Rec. Programs</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/info"><span>Stay Informed</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/calendar"><span>View Calendar of Events</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/info"><span>Stay Informed</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/calendar"><span>Calendar of Events</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=6D49A349-2375-4F02-8347-9A4899781B18"><span>Community Links</span></a>
+<ul>
+<li>
+<a target="_blank" href="http://www.cheddarsalecenter.org/"><span>Community & Senior Center</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsalelibrary.org/"><span>Public Library</span></a>
+</li><li>
+<a target="_blank" href="http://cheddarsalewalleyecreekfire.com/"><span>Fire & EMS Department</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsalearea.com/"><span>Chamber of Commerce</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsale.k12.wi.us/"><span>Cheddarsale Area Schools</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/foodpantry"><span>Cheddarsale Walleyecreek Food Pantry</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={798A4408-4E5B-4FA8-AB2F-5F291D076421}"><span>Elections & Voting</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/farmersmarket"><span>Farmers Market</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/utilityservices"><span>Utility Services (Water)</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/yaharariverfest"><span>Yahara Riverfest</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/departments"><span>Departments</span></a>
+<ul>
+<li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/administration"><span>Administration</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/licenses"><span>Licenses</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/elections"><span>Voting & Elections</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/assessor"><span>Assessor & Assessment</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/budgettax"><span>Budget & Tax</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="http://developcheddarsale.com/"><span>Economic & Community Development</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/parks"><span>Parks and Trails</span></a>
+<ul>
+<li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/cheddarsaleparks"><span>Parks and Conservancy Land</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={05A4A905-9D3E-472E-9C89-61C1C399B6E3}"><span>Park Shelter Reservations</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=3C25FBD3-5443-4B7B-9DDE-DF1824F186E2"><span>Cheddarsale Athletic Complex</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=440D7EB2-4E9D-4D13-9221-BF189C414BF8"><span>Athletic Field Rentals</span></a>
+</li></ul>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/planning"><span>Planning, Zoning & Development</span></a>
+<ul>
+<li>
+<a target="_blank" href="https://cheddarsale.wi.us/index.asp?SEC=441FC524-2DC0-4DCA-A17D-EA245CD507D5&amp;DE=79C5365C-ED64-4EA5-A5A9-5EB480DBBF5A"><span>Adopted Village Plans</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=B6F0CBFB-07D0-43CB-914B-AB10321E8C57"><span>Property Maintenance Complaints</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/redevelopment"><span>Redevelopment Planning</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/compplan"><span>Updated Comprehensive Plan</span></a>
+</li></ul>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/police"><span>Police Department</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/publicservice"><span>Public Services</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/curbsideservices"><span>Curbside Services</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/disposal"><span>Garbage &  Recycling</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/streets"><span>Streets</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=F1A83AD6-B9DF-45A3-A035-81CE4F194F3E"><span>Alternate Side Parking</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=5EC4AB84-8F91-4551-BB17-51AFA30F5FF0"><span>Mailbox Damaged by Village Snow Plow</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/winter"><span>Snow and Ice</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=0BEAAF20-9562-4DE2-9448-BDAB97EAB9DD"><span>Report a Decorative Village Light Out</span></a>
+</li><li>
+<a target="_blank" href="https://www.alliantenergy.com/CustomerService/AlliantEnergyService/OutageCenter/RequestaStreetlightRepair"><span>Report a Street Light Out</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/utilityservices"><span>Utility Services (Water)</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/yardwaste"><span>Yard Waste</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/recreation"><span>Recreation</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/currentprograms"><span>Current Programs</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/discounttickets"><span>Discount Tickets</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/fitpass"><span>Fit Pass</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/register"><span>Register for Programs</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/specialevents"><span>Special Events</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/sponsorship"><span>Sponsorship</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/community"><span>Community Links</span></a>
+<ul>
+<li>
+<a href="https://www.cheddarsalecenter.org/"><span>Cornerstone Community Center</span></a>
+</li><li>
+<a href="https://www.cheddarsalelibrary.org/"><span>Public Library</span></a>
+</li><li>
+<a href="http://cheddarsalefire.com/"><span>Fire & EMS Department</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsalearea.com/"><span>Chamber of Commerce</span></a>
+</li><li>
+<a target="_blank" href="http://www.cheddarsale.k12.wi.us/"><span>Cheddarsale Area Schools</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/foodpantry"><span>DeForest Area Food Pantry</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/court"><span>Cheddarsalewalleyecreek Municipal Court</span></a>
+</li></ul>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li></ul>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/government"><span>Government</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/committeescommissions"><span>Committees & Commissions</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/officials"><span>Elected Officials</span></a>
+</li><li>
+<a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC={798A4408-4E5B-4FA8-AB2F-5F291D076421}"><span>Elections</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=E1B9ED1A-3658-4B17-9A24-9D052CFC18B4"><span>Meeting Agendas, Minutes & Recordings</span></a>
+</li><li class="hasChildren">
+<a href="//www.vi.cheddarsale.wi.us/ordinances"><span>Ordinances</span></a>
+<ul>
+<li>
+<a href="//www.vi.cheddarsale.wi.us/parking"><span>Recreational Vehicles</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/grass"><span>Noxious Weeds</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/fire"><span>Fire Pits & Grills</span></a>
+</li></ul>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/projectsbids"><span>Projects & Bids</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/employment"><span>Village Employment</span></a>
+</li><li>
+<a href="//www.vi.cheddarsale.wi.us/index.asp?SEC=647F515C-98D1-4578-95AA-4BC22FAE9ABC"><span>Reserve Meeting Rooms</span></a>
+</li><li>
+<a target="_blank" href="https://cheddarsale.wi.us/contact"><span>Contact Village Staff</span></a>
+</li></ul>
+</li></ul>
+</nav>
+</div>
+</div>
+</header>
+<div class="slider_wrap1">
+<div class="sliderbar_owl">
+<div class="slider_arrowwrap">
+<div class="controls">
+<span role="button" aria-label="previous slide" class="arrowleft" tabindex="0"><i class="fa fa-arrow-left"><!----></i></span>
+<span role="button" aria-label="next slide" class="arrowright" tabindex="0"><i class="fa fa-arrow-right"><!----></i></span>
+<span role="button" aria-label="pause slide" class="arrowpause" tabindex="0"><i class="fa fa-pause"><!----></i></span>
+<span role="button" aria-label="start slide" class="arrowplay" tabindex="0"><i class="fa fa-play"><!----></i></span>
+</div>
+</div>
+<div class="slider_owl owl-theme">
+<div role="img" aria-label="Summer_Website_Slides_copy_2_(2).jpg" class="item item1" style="background: url('/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Summer_Website_Slides_copy_2_(2)_Web.jpg') no-repeat top center; background-size: cover;">
+<!----></div>
+<div role="img" aria-label="Summer_Website_Slides_copy-1(2).jpg" class="item item2" style="background: url('/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Summer_Website_Slides_copy-1(2)_Web.jpg') no-repeat top center; background-size: cover;">
+<!----></div>
+<div role="img" aria-label="Summer_Website_Slides_copy-1(3).jpg" class="item item3" style="background: url('/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Summer_Website_Slides_copy-1(3)_Web.jpg') no-repeat top center; background-size: cover;">
+<!----></div>
+<div role="img" aria-label="Pond with cloudy skies and dock in background" class="item item4" style="background: url('/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/lake_Web.jpg') no-repeat top center; background-size: cover;">
+<!----></div>
+<div role="img" aria-label="Fireman's Park Blooming Trees" class="item item5" style="background: url('/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Summer_Website_Slides_copy-1(1)_Web.jpg') no-repeat top center; background-size: cover;">
+<!----></div>
+</div>
+<script>
+						$(document).ready(function() {
+							var p = 1;
+							var paused = false;
+							$('.slider_owl').owlCarousel({
+							center: true, loop: true, autoplay: true, 
+							autoplayTimeout: 5500, smartSpeed: 1000,
+							autoplayHoverPause: false, dots: false,
+							nav: false,	margin: 0, items: 1, rewind: true,
+							animateOut: 'fadeOut', animateIn: 'fadeIn'
+							});
+
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowleft').click(function() {
+								$('.slider_wrap' + p + ' .slider_owl').trigger('prev.owl.carousel');
+							});
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowright').click(function() {
+								$('.slider_wrap' + p + ' .slider_owl').trigger('next.owl.carousel');
+							});
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowpause').click(function() {
+								$('.slider_wrap' + p + ' .slider_owl').trigger('stop.owl.autoplay');
+								$('.slider_wrap' + p + ' .slider_arrowwrap .arrowpause').hide();
+								$('.slider_wrap' + p + ' .slider_arrowwrap .arrowplay').css('display', 'inline-block');
+								$('.slider_wrap' + p + ' .slider_arrowwrap .arrowplay').focus();
+								$('.slider_owl').data('owl.carousel').settings.autoplay = false;
+								$('.slider_owl').data('owl.carousel').options.autoplay = false;
+							});
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowplay').click(function() {
+								$('.slider_wrap' + p + ' .slider_owl').trigger('play.owl.autoplay',[5500]);
+								$('.slider_wrap' + p + ' .slider_arrowwrap .arrowplay').hide();
+								$('.slider_wrap' + p + ' .slider_arrowwrap .arrowpause').css('display', 'inline-block');
+								$('.slider_wrap' + p + ' .slider_arrowwrap .arrowpause').focus();
+								$('.slider_owl').data('owl.carousel').settings.autoplay = true;
+								$('.slider_owl').data('owl.carousel').options.autoplay = true;
+							});
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowleft').keydown(function(e) { if (e.keyCode == 13) { $('.slider_wrap' + p + ' .slider_arrowwrap .arrowleft').click(); }});
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowright').keydown(function(e) { if (e.keyCode == 13) { $('.slider_wrap' + p + ' .slider_arrowwrap .arrowright').click(); }});
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowpause').keydown(function(e) { if (e.keyCode == 13) { $('.slider_wrap' + p + ' .slider_arrowwrap .arrowpause').click(); }});
+							$('.slider_wrap' + p + ' .slider_arrowwrap .arrowplay').keydown(function(e) { if (e.keyCode == 13) { $('.slider_wrap' + p + ' .slider_arrowwrap .arrowplay').click(); }});
+						});
+					</script>
+</div>
+</div>
+<div class="filmstrip_wrap1">
+<div class="filmstripbar_owl">
+<div class="filmstrip_arrowwrap">
+<div class="controls">
+<span role="button" aria-label="previous filmstrip icon" class="arrowleft" tabindex="0"><i class="fa fa-arrow-left"><!----></i></span>
+<span role="button" aria-label="next filmstrip icon" class="arrowright" tabindex="0"><i class="fa fa-arrow-right"><!----></i></span>
+<span role="button" aria-label="pause filmstrip" class="arrowpause" tabindex="0"><i class="fa fa-pause"><!----></i></span>
+<span role="button" aria-label="start filmstrip" class="arrowplay" tabindex="0"><i class="fa fa-play"><!----></i></span>
+</div>
+</div>
+<div class="filmstrip_owl owl-theme">
+<div class="item item1">
+<a href="https://meetings.vi.cheddarsale.wi.us/OnBaseAgendaOnline/" rel="noopener noreferrer" target="_blank">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/AgendaMinutes.png" alt="" />
+<div>Agenda &amp; Minutes</div>
+</a>
+</div>
+<div class="item item2">
+<a href="/contact" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/ContactUs.png" alt="" />
+<div>Contact Us</div>
+</a>
+</div>
+<div class="item item3">
+<a href="https://cheddarsale.wi.us/index.asp?SEC={798A4408-4E5B-4FA8-AB2F-5F291D076421}" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/ElectionsVoting.png" alt="" />
+<div>Elections &amp; Voting</div>
+</a>
+</div>
+<div class="item item4">
+<a href="/disposal" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/DisposalServices.png" alt="" />
+<div>Disposal Services</div>
+</a>
+</div>
+<div class="item item5">
+<a href="/officials" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/ElectedOfficials.png" alt="" />
+<div>Elected Officials</div>
+</a>
+</div>
+<div class="item item6">
+<a href="/employment" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Employment.png" alt="" />
+<div>Employment</div>
+</a>
+</div>
+<div class="item item7">
+<a href="http://sai.maps.arcgis.com/apps/webappviewer/index.html?id=d63a3608d75640d7bbc06d9e3e1e6b1a" rel="noopener noreferrer" target="_blank">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/GISMaps.png" alt="" />
+<div>GIS Maps</div>
+</a>
+</div>
+<div class="item item8">
+<a href="/info" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Notify.png" alt="" />
+<div>Notify</div>
+</a>
+</div>
+<div class="item item9">
+<a href="/ordinances" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Ordinances.png" alt="" />
+<div>Ordinances</div>
+</a>
+</div>
+<div class="item item10">
+<a href="/parks" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Parks.png" alt="" />
+<div>Parks</div>
+</a>
+</div>
+<div class="item item11">
+<a href="/payments" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/PayOnline.png" alt="" />
+<div>Pay Online</div>
+</a>
+</div>
+<div class="item item12">
+<a href="/planning" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/PermitsForms.png" alt="" />
+<div>Permits &amp; Forms</div>
+</a>
+</div>
+<div class="item item13">
+<a href="/recreation" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Recreation.png" alt="" />
+<div>Recreation</div>
+</a>
+</div>
+<div class="item item14">
+<a href="https://cheddarsale.wi.us/index.asp?SEC=27065B4E-64A1-45C1-B984-90B68BD07285" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/ReportAConcern.png" alt="" />
+<div>Report a Concern</div>
+</a>
+</div>
+<div class="item item15">
+<a href="/utilityservices" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Utility.png" alt="" />
+<div>Utility</div>
+</a>
+</div>
+</div>
+<script>
+						$(document).ready(function() {
+							var p = 1;
+							$('.filmstrip_wrap' + p + ' .filmstrip_owl').owlCarousel({
+							center: false, loop: true, autoplay: true, nav: false, rewind: false,
+							autoplayTimeout: 5000, smartSpeed: 1000, autoWidth: false,
+							autoplayHoverPause: true, margin: 0, dots: false, stagePadding: 0,
+							responsive: {0: { items: 1, nav: false }, 
+										500: { items: 2, nav: false },
+										800: { items: 3, nav: false },
+										1100: { items: 4, nav: false },
+										1400: { items: 5, nav: false },
+										1700: { items: 6, nav: false },
+										2000: { items: 7, nav: false }}
+							});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowright').click(function() {
+							    $('.filmstrip_wrap' + p + ' .filmstrip_owl').trigger('next.owl.carousel');
+							});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowleft').click(function() {
+							    $('.filmstrip_wrap' + p + ' .filmstrip_owl').trigger('prev.owl.carousel');
+							});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowpause').click(function() {
+								$('.filmstrip_wrap' + p + ' .filmstrip_owl').trigger('stop.owl.autoplay');
+								$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowpause').hide();
+								$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowplay').css('display', 'inline-block');
+								$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowplay').focus();
+								$('.filmstrip_wrap' + p + ' .filmstrip_owl').data('owl.carousel').settings.autoplay = false;
+								$('.filmstrip_wrap' + p + ' .filmstrip_owl').data('owl.carousel').options.autoplay = false;
+							});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowplay').click(function() {
+								$('.filmstrip_wrap' + p + ' .filmstrip_owl').trigger('play.owl.autoplay',[5000]);
+								$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowplay').hide();
+								$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowpause').css('display', 'inline-block');
+								$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowpause').focus();
+								$('.filmstrip_wrap' + p + ' .filmstrip_owl').data('owl.carousel').settings.autoplay = true;
+								$('.filmstrip_wrap' + p + ' .filmstrip_owl').data('owl.carousel').options.autoplay = true;
+							});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowleft').keydown(function(e) { if (e.keyCode == 13) { $('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowleft').click(); }});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowright').keydown(function(e) { if (e.keyCode == 13) { $('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowright').click(); }});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowpause').keydown(function(e) { if (e.keyCode == 13) { $('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowpause').click(); }});
+							$('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowplay').keydown(function(e) { if (e.keyCode == 13) { $('.filmstrip_wrap' + p + ' .filmstrip_arrowwrap .arrowplay').click(); }});
+						});
+					</script>
+</div>
+</div>
+<div class="widthContainer">
+<div class="contentBG">
+<main class="container content">
+<div class="mainContent">
+<div class="insideMainContent">
+<a id="mainContent"><!----></a>
+<section class="box promotion B_LIST HA_Boxes count6">
+<div class="responsivebox">
+<div>
+<div style="width: 800px;" class="image left">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Recreation_Fall_Web.jpg" alt="Recreation_Fall.jpg" />
+</div>
+<h2><a href="/recreation">Recreation Programs</a></h2>
+<div class="boxbody"><p><a href="https://cheddarsale.wi.us/recreation" target="_blank">Parks &amp; Recreation</a></p>
+<p><a href="http://www.cheddarsalelibrary.org/" target="_blank">Public Library</a></p>
+<p><a href="http://www.cheddarsalecenter.org/" target="_blank">Community &amp; Senior Center</a></p>
+<p><a href="https://cheddarsale.wi.us/index.asp?SEC=CB6929B7-7CB3-47A3-A1D8-FC9DBAB30388" target="_blank">Community Organizations</a></p></div>
+</div>
+</div>
+<div class="responsivebox">
+<div>
+<div style="width: 800px;" class="image left">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/OngoingProjects_Web.jpg" alt="Blueprints with tools" />
+</div>
+<h2><a href="/planning">Building Permits</a></h2>
+<div class="boxbody">Decks, fences, sheds, pools, and other structural alterations require a permit.&nbsp; Learn More:&nbsp;<a href="https://protect-us.mimecast.com/s/U0OsCR6X8ysGjg0OiPHCFZ?domain.vi.cheddarsale.wi.us">Permits</a></div>
+</div>
+</div>
+<div class="responsivebox">
+<div>
+<div style="width: 800px;" class="image left">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Your_Village.__Your_Vision._Your_Future._Website_(1)_Web.jpg" alt="Comprehensive Plan Graphic" />
+</div>
+<h2><a href="/compplan">Comp Plan Updated!</a></h2>
+<div class="boxbody"><span>After much success in implementing the Village&rsquo;s 2015 Comprehensive Plan, the Village Board adopted an updated Plan in April 2023.</span>To review the plan and learn more:&nbsp;<a href="https://protect-us.mimecast.com/s/rteSCW61WEs6RyX4fm_GcF?domain.vi.cheddarsale.wi.us">Comp Plan</a></div>
+</div>
+</div>
+<div class="responsivebox">
+<div>
+<div style="width: 800px;" class="image left">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Website_Boxes_800_x_600-1(1)_Web.jpg" alt="Website_Boxes_800_x_600-1(1).jpg" />
+</div>
+<h2><a href="https://cheddarsale.wi.us/index.asp?Type=B_BASIC&amp;SEC=%7b280FDF47-2652-44F6-84E5-A7297874AA10%7d">Parks & Trails</a></h2>
+<div class="boxbody">Beautiful trail systems along the Upper Yahara River and continuous investment in our parks provide the community a great escape outdoors.&nbsp; Learn More:&nbsp;<a href="https://protect-us.mimecast.com/s/j5GyCXDPYGI4VMD9C9cAxE?domain.vi.cheddarsale.wi.us">Parks &amp; Trails</a></div>
+</div>
+</div>
+<div class="responsivebox">
+<div>
+<div style="width: 800px;" class="image left">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Police_Bike_To_School_2023_Web.jpg" alt="Police_Bike_To_School_2023.jpg" />
+</div>
+<h2><a href="/police">Police Department</a></h2>
+<div class="boxbody">Our Police Department is dedicated to community policing and improved quality of life for our residents. Learn More:&nbsp;<a href="https://protect-us.mimecast.com/s/AjMmCYEZVJuDE6p9c3NLV_?domain.vi.cheddarsale.wi.us">Police</a></div>
+</div>
+</div>
+<div class="responsivebox">
+<div>
+<div style="width: 800px;" class="image left">
+<a target="_blank" href="https://www.elocallink.tv/m/v/Redesign4/?pid=w8wwx9z3&amp;fp=widefor_22_wel_rev3_iwd">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Blank_800_x_600_(1)_Web.png" alt="Blank_800_x_600_(1).png" />
+</a>
+</div>
+<h2><a href="http://www.elocallink.tv/m/v/Redesign4/?pid=w8wwx9z3&amp;fp=widefor_22_wel_rev3_iwd" target="_blank">CGI Video Tour</a></h2>
+<div class="boxbody"><p>Click the links to learn more about the Village of Cheddarsale. Growing the Good Life!</p>
+<p><a href="http://www.elocallink.tv/m/v/Redesign4/?pid=w8wwx9z3&amp;fp=widefor_22_wel_rev3_iwd">Welcome</a><br /><a href="https://www.elocallink.tv/m/v/Redesign4/?pid=w4w7w9x1z21&amp;fp=widefor_22_qol_rev_iwd">Quality of Life</a><br /><a href="https://www.elocallink.tv/m/v/Redesign4/?pid=w4w7w9x1z21&amp;fp=widefor_22_wel_rev3_iwd#c|widefor_22_ecodev_rev2_iwd">Economic Development</a><br /><a href="https://www.elocallink.tv/m/v/Redesign4/?pid=w4w7w9x1z21&amp;fp=widefor_22_wel_rev3_iwd#c|widefor_22_parks_rev2_iwd">Parks and Recreation</a></p></div>
+</div>
+</div>
+</section>
+<div class="clr"><!----></div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<div class="carousel_wrap1">
+<div class="carouselbar_owl">
+<div class="carousel_arrowwrap">
+<div class="controls">
+<span role="button" aria-label="previous carousel image" class="arrowleft" tabindex="0"><i class="fa fa-arrow-left"><!----></i></span>
+<span role="button" aria-label="next carousel image" class="arrowright" tabindex="0"><i class="fa fa-arrow-right"><!----></i></span>
+<span role="button" aria-label="pause carousel movement" class="arrowpause" tabindex="0"><i class="fa fa-pause"><!----></i></span>
+<span role="button" aria-label="start carousel movement" class="arrowplay" tabindex="0"><i class="fa fa-play"><!----></i></span>
+</div>
+</div>
+<div class="carousel_owl owl-theme">
+<div class="item item1">
+<a href="http://youtu.be/FppLmP3FobI" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/DeForest_postcard_graphics_800x500_v1_Web.jpg" alt="DeForest_postcard_graphics_800x500_v1.jpg" /></a>
+<a class="title" href="http://youtu.be/FppLmP3FobI" rel="noopener noreferrer">Welcome to DeForest</a>
+<div><div style="text-align: left;">Welcome to the <a href="https://youtu.be/FppLmP3FobI">Village of Cheddarsale</a>, WI! Offering village charm, quiet and walkable neighborhoods, top schools, abundant parks and trails, soothing natural resources featuring the upper Yahara River. Catch a glimpse of life in DeForest.</div></div>
+</div>
+<div class="item item2">
+<a href="http://www.youtube.com/watch?v=Xg738_D5J0g" rel="noopener noreferrer" target="_blank">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Athletic_Web.jpg" alt="Athletic Complex" /></a>
+<a class="title" href="http://www.youtube.com/watch?v=Xg738_D5J0g" rel="noopener noreferrer" target="_blank">Athletic Complex</a>
+<div>The Cheddarsale Athletic Complex is a state-of-the-art facility located on 25 acres with excellent access to I39/90/94. The complex is comprised of four diamonds (two-skinned/two synthetic infields), two long grass fields and a full concession stand with open air shelter.<br /><br /></div>
+</div>
+<div class="item item3">
+<a href="/yardwaste" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/PublicWorks_Web.jpg" alt="Bag of leaves" /></a>
+<a class="title" href="/yardwaste" rel="noopener noreferrer">Yard Waste Site</a>
+<div><p>The Yard Waste Site will open for the season on March 30, 2024 - November 27, 2024 and accepts yard waste and brush from DeForest residents.&nbsp; Permit is required.&nbsp; Learn More:&nbsp;&nbsp;<a href="https://protect-us.mimecast.com/s/A0ChC2kXGpuVPEZmTvx8b2?domain.vi.cheddarsale.wi.us">Yard Waste<br /></a></p>
+<p>&nbsp;</p></div>
+</div>
+<div class="item item4">
+<a href="/projects" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/Reconstruction_Web.jpg" alt="Construction trucks" /></a>
+<a class="title" href="/projects" rel="noopener noreferrer">Community Projects</a>
+<div><p>Several community projects will be underway in 2024. From street reconstruction and resurfacing and park projects. Learn more by visiting: <a href="https://www.engagecheddarsale.com/">Engage Cheddarsale</a><a href="https://cheddarsale.wi.us/projects"><br /></a></p>
+<p>&nbsp;</p></div>
+</div>
+<div class="item item5">
+<a href="https://cheddarsale.wi.us/info" rel="noopener noreferrer">
+<img src="/vertical/Sites/%7B5DDB5418-8268-440C-BD18-45CB7768531A%7D/uploads/contactus_(1)_Web.jpg" alt="Hand holding touchscreen phone with social media icons above" /></a>
+<a class="title" href="https://cheddarsale.wi.us/info" rel="noopener noreferrer">Stay Informed</a>
+<div><p>There are multiple ways to get important updates and news about community happenings.</p>
+<p><a href="https://protect-us.mimecast.com/s/f9NECZ6gZKs7ro8jCNh4RN?domain.vi.cheddarsale.wi.us">Text Message Updates</a></p>
+<p><a href="https://protect-us.mimecast.com/s/f9NECZ6gZKs7ro8jCNh4RN?domain.vi.cheddarsale.wi.us">Email Updates</a>&nbsp;or&nbsp;<a href="https://protect-us.mimecast.com/s/f9NECZ6gZKs7ro8jCNh4RN?domain.vi.cheddarsale.wi.us">Social Media</a></p></div>
+</div>
+</div>
+<script>
+						$(document).ready(function() {
+							var p = 1;
+							$('.carousel_wrap' + p + ' .carousel_owl').owlCarousel({
+							center: false, loop: true, autoplay: true,
+							autoplayTimeout: 4000, smartSpeed: 1000,
+							autoplayHoverPause: true, margin: 15,
+							dots: false, nav: false,
+							responsive: {0: { items: 1, nav: false }, 
+										900: { items: 2, nav: false },
+										1300: { items: 3, nav: false },
+										1700: { items: 4, nav: false },
+										2100: { items: 5, nav: false }}
+							});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowright').click(function() {
+								$('.carousel_wrap' + p + ' .carousel_owl').trigger('next.owl.carousel');
+							});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowleft').click(function() {
+								$('.carousel_wrap' + p + ' .carousel_owl').trigger('prev.owl.carousel');
+							});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowpause').click(function() {
+								$('.carousel_wrap' + p + ' .carousel_owl').trigger('stop.owl.autoplay');
+								$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowpause').hide();
+								$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowplay').css('display', 'inline-block');
+								$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowplay').focus();
+								$('.carousel_wrap' + p + ' .carousel_owl').data('owl.carousel').settings.autoplay = false;
+								$('.carousel_wrap' + p + ' .carousel_owl').data('owl.carousel').options.autoplay = false;
+							});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowplay').click(function() {
+								$('.carousel_wrap' + p + ' .carousel_owl').trigger('play.owl.autoplay',[5000]);
+								$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowplay').hide();
+								$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowpause').css('display', 'inline-block');
+								$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowpause').focus();
+								$('.carousel_wrap' + p + ' .carousel_owl').data('owl.carousel').settings.autoplay = true;
+								$('.carousel_wrap' + p + ' .carousel_owl').data('owl.carousel').options.autoplay = true;
+							});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowleft').keydown(function(e) { if (e.keyCode == 13) { $('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowleft').click(); }});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowright').keydown(function(e) { if (e.keyCode == 13) { $('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowright').click(); }});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowpause').keydown(function(e) { if (e.keyCode == 13) { $('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowpause').click(); }});
+							$('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowplay').keydown(function(e) { if (e.keyCode == 13) { $('.carousel_wrap' + p + ' .carousel_arrowwrap .arrowplay').click(); }});
+						});
+						// $(window).load(function() {
+						// 	Match.classMatch('.carouselbar_owl .carousel_owl .owl-item');
+						// });
+					</script>
+</div>
+</div>
+<footer role="contentinfo" class="main">
+<div class="footertext">
+<div class="text">Official Website of Cheddarsale, Wisconsin<!----></div>
+<div class="text2">Village Hall: 120 S. Stevenson Street, Cheddarsale, WI 53532<!----></div>
+<div class="text3">Phone: (608) 846-6751, Dane County<!----></div>
+<div class="text4">Monday-Thursday 7:30 AM – 4:30 PM and Friday 7:30 AM – 2:00 PM<!----></div>
+<div class="text5"><a href="/sitemap">Site Map</a>   |   <a href="/contact">Contact Us</a><!----></div>
+<div class="text6"><!----></div>
+<div class="text7"><!----></div>
+<div class="text8"><!----></div>
+<div class="verticalLogo_text">
+<a href="https://catalisgov.com" target="blank">Government Websites by Catalis</a></div>
+</div>
+</footer>
+</div>
+<a id="backTop" title="top of page"><i class="fa fa-arrow-up" aria-hidden="true"><!----></i></a>
+<script>
+	            $(document).ready( function() {
+	                $('#backTop').backTop({'position':100, 'speed':500, 'color':'white'});
+	            });
+			</script>
+</body>
+</html>
+
+<!-- cache expires 03/18/2024 19:19 -->
+<!-- Web05 -->
