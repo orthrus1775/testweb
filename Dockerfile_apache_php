@@ -1,0 +1,28 @@
+# Stage 1: Build the Python environment
+FROM python:3 as python-builder
+
+# Install required packages for update_database.py
+RUN pip install pandas pymysql
+
+# Stage 2: Apache with PHP container
+FROM php:7.0-apache
+
+# Enable Apache modules
+RUN a2enmod rewrite
+
+# Install Python and copy the installed packages from the first stage
+# RUN apt-get update && \
+#    apt-get install -y python3 python3-pip && \
+#    pip3 install pandas pymysql
+RUN docker-php-ext-install mysqli
+# Copy your PHP application code to the container
+COPY app/ /var/www/html
+
+# Copy the update_database.py script
+# COPY app/update_database.py /var/www/html
+
+# Expose the port the Apache server will run on
+EXPOSE 80
+
+# Start Apache
+CMD ["apache2-foreground"]

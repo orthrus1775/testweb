@@ -1,0 +1,147 @@
+html,
+body,
+.allContainer {
+    background: #fff;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+    
+body * {
+    box-sizing: border-box;
+    background: #fff !important;
+    color: #000;
+    line-height: 1.3;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 12pt;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    border: none !important;
+    height: auto !important; 
+}
+h1 { font-size: 24pt; clear: both; }
+h2, h3, h4 { font-size: 14pt; margin-top: 25px; clear: both; }
+
+div.banner .title,
+div.banner .logo {
+    height: 100px;
+    width: auto;
+}
+
+header { height: 200px; }
+
+body a {
+    text-decoration: underline;
+}
+
+div.widthContainer {
+    width: 100%;
+    background: #fff;
+}
+
+img {
+    max-width: 95% !important;
+}
+
+div.lowerheader,
+nav,
+footer,
+.slogan {
+    display: none !important;
+}
+
+.searchSocial,
+.searchPositioner,
+.socialPositioner {
+    display: none !important;
+}
+
+.border1,
+.border2,
+.border3,
+.box_skitter,
+.box_skitter_large {
+    display: none;
+}
+
+.mainTable .leftColumn,
+.mainTable .rightColumn {
+    width: 25% !important;
+}
+
+.noPrint, .noprint {
+    display: none;
+}
+
+.calendarTable {
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+}
+
+.calendarTable td.calDay {
+    border: 1px solid #555 !important;
+    width: 14%;
+    line-height: 90%;
+}
+
+.body .calendarTable td.calDay.calGrayDay {
+    background: #ccc !important;
+}
+
+.calendarTable td.calDay a .eventTitle,
+.calendarTable td.calDay .calDayNum {
+    font-size: 6pt;
+    line-height: 90%;
+    text-decoration: none !important;
+}
+.calendarTable .eventTitle { display: inline-block; margin: 5px 2px; font-weight: normal; }
+
+main.content, div.content, div.mainContent { display: block; } /* firefox only shows one page for flexbox - fix */
+.topbar2 { display: block; height: 200px; position: relative; }
+.topbar2 a.title { font-size: 36pt; }
+div.small.calLinks,
+div.readmore.small,
+div.seeallitems,
+.calendarTable .eventStar,
+div.notifications, div.notifications .notification,
+div.slider_wrap1, div.sliderbar_owl,
+div.filmstrip_wrap1, div.filmstripbar_owl,
+div.carousel_wrap1, div.carouselbar_owl,
+a#backTop, a#backtop, div.bigpicture {
+    display: none !important;
+    height: 0;
+}
+
+.image.left, .image.right { 
+    float: none !important; 
+    max-width: 60% !important; 
+    text-align: center;
+}
+div.topbar2, div.banner { height: 200px !important; }
+a.title, div.titlewrap { position: relative; }
+
+/* Defining all page breaks */
+a { page-break-inside:avoid; }
+blockquote { page-break-inside: avoid; }
+h1, h2, h3, h4, h5, h6 { page-break-after:avoid; page-break-inside:avoid; clear: both; }
+img { page-break-inside:avoid; page-break-after:avoid; clear: both; }
+table, pre { page-break-inside: avoid; }
+ul, ol, dl  { page-break-before: avoid; }
+article, section { page-break-inside: avoid; }
+div.responsivebox { page-break-inside: avoid; }
+
+/* Making intergated videos disappear, and removing the iframes' whitespace to zero.  */
+.entry iframe, ins {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    line-height: 0pt !important;
+    white-space: nowrap;
+}
+.embed-youtube, .embed-responsive {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+}
